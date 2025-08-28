@@ -1,0 +1,258 @@
+.order-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  padding: 20px;
+}
+
+.order-modal {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+  padding: 32px 24px 24px 24px;
+  max-width: 400px;
+  width: 100%;
+  position: relative;
+  text-align: center;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.close-btn {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: #888;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.order-modal-img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 18px;
+}
+
+.order-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+}
+
+.order-form label {
+  font-weight: 500;
+  color: #333;
+}
+
+.order-form input[type="number"],
+.order-form select {
+  width: 100%;
+  max-width: 200px;
+  padding: 10px;
+  border: 2px solid #e1e5e9;
+  border-radius: 6px;
+  font-size: 1rem;
+  text-align: center;
+}
+
+.order-form select {
+  background: white;
+  cursor: pointer;
+}
+
+.order-form select:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
+.order-modal-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.order-btn {
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.order-btn:hover:not(:disabled) {
+  background: #0056b3;
+}
+
+.cancel-btn {
+  background: #6c757d;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.cancel-btn:hover:not(:disabled) {
+  background: #5a6268;
+}
+
+/* Payment Plan Styles */
+.payment-plan-info {
+  background: #f8f9fa;
+  border: 2px solid #e9ecef;
+  border-radius: 8px;
+  padding: 16px;
+  margin: 8px 0;
+  width: 100%;
+}
+
+.plan-details {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  text-align: left;
+}
+
+.plan-details span {
+  font-size: 0.9rem;
+  color: #495057;
+  font-weight: 500;
+}
+
+.plan-details span:first-child {
+  font-weight: 600;
+  color: #007bff;
+}
+
+.order-error {
+  color: #dc3545;
+  background: #f8d7da;
+  padding: 8px;
+  border-radius: 6px;
+  margin-top: 10px;
+}
+
+.order-success {
+  color: #28a745;
+  background: #d4edda;
+  padding: 8px;
+  border-radius: 6px;
+  margin-top: 10px;
+}
+
+/* Mobile Responsive Design */
+@media (max-width: 768px) {
+  .order-modal-overlay {
+    padding: 10px;
+    align-items: flex-start;
+    padding-top: 20px;
+  }
+  
+  .order-modal {
+    max-width: 100%;
+    margin: 0;
+    padding: 20px 15px 15px 15px;
+    max-height: 95vh;
+  }
+  
+  .order-modal h2 {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+  }
+  
+  .order-modal-img {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .order-form {
+    gap: 12px;
+  }
+  
+  .order-form input[type="number"],
+  .order-form select {
+    max-width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+  }
+  
+  .payment-plan-info {
+    padding: 12px;
+  }
+  
+  .plan-details span {
+    font-size: 0.85rem;
+  }
+  
+  .order-modal-actions {
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+  }
+  
+  .order-btn,
+  .cancel-btn {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .order-modal-overlay {
+    padding: 5px;
+    padding-top: 10px;
+  }
+  
+  .order-modal {
+    padding: 15px 10px 10px 10px;
+  }
+  
+  .order-modal h2 {
+    font-size: 1.2rem;
+  }
+  
+  .order-modal-img {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .close-btn {
+    top: 8px;
+    right: 12px;
+    font-size: 1.5rem;
+  }
+  
+  .order-form input[type="number"],
+  .order-form select {
+    padding: 10px;
+    font-size: 0.9rem;
+  }
+  
+  .payment-plan-info {
+    padding: 10px;
+  }
+  
+  .plan-details span {
+    font-size: 0.8rem;
+  }
+}

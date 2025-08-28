@@ -1,0 +1,493 @@
+.premium-campaign-detail-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.campaign-detail-container {
+  flex: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.breadcrumb {
+  margin-bottom: 30px;
+}
+
+.breadcrumb a {
+  color: #3498db;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.breadcrumb a:hover {
+  color: #2980b9;
+}
+
+.campaign-detail-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+.campaign-image-section {
+  position: sticky;
+  top: 20px;
+}
+
+.campaign-image-container {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.campaign-image-container img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.campaign-image-container:hover img {
+  transform: scale(1.02);
+}
+
+.status-badge {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.status-badge.ongoing {
+  background: #27ae60;
+  color: white;
+}
+
+.status-badge.upcoming {
+  background: #f39c12;
+  color: white;
+}
+
+.status-badge.completed {
+  background: #95a5a6;
+  color: white;
+}
+
+.status-badge.ended {
+  background: #e74c3c;
+  color: white;
+}
+
+.status-badge.full {
+  background: #e74c3c;
+  color: white;
+}
+
+.campaign-info-section {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.campaign-header h1 {
+  font-size: 2.5rem;
+  color: #2c3e50;
+  margin: 0 0 15px 0;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.campaign-category {
+  margin-bottom: 20px;
+}
+
+.category-badge {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.campaign-description h3,
+.pricing-section h3,
+.campaign-details h3,
+.benefits-section h3,
+.requirements-section h3 {
+  color: #2c3e50;
+  font-size: 1.4rem;
+  margin: 0 0 15px 0;
+  font-weight: 600;
+}
+
+.campaign-description p {
+  color: #7f8c8d;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.pricing-section {
+  background: #f8f9fa;
+  padding: 25px;
+  border-radius: 12px;
+  border: 1px solid #e0e0e0;
+}
+
+.price-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 20px;
+  margin-bottom: 25px;
+}
+
+.price-card {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.price-card.original {
+  border-color: #95a5a6;
+}
+
+.price-card.premium {
+  border-color: #e74c3c;
+}
+
+.price-card.shipping {
+  border-color: #3498db;
+}
+
+.price-card h4 {
+  color: #2c3e50;
+  font-size: 1rem;
+  margin: 0 0 10px 0;
+  font-weight: 600;
+}
+
+.price-card .price {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.price-card.original .price {
+  color: #95a5a6;
+  text-decoration: line-through;
+}
+
+.price-card.premium .price {
+  color: #e74c3c;
+}
+
+.price-card.shipping .price {
+  color: #3498db;
+}
+
+.price-card p {
+  color: #7f8c8d;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.total-cost {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  border: 2px solid #27ae60;
+}
+
+.total-cost h4 {
+  color: #2c3e50;
+  font-size: 1.1rem;
+  margin: 0 0 10px 0;
+  font-weight: 600;
+}
+
+.total-price {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #27ae60;
+}
+
+.details-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.detail-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid #ecf0f1;
+}
+
+.detail-item:last-child {
+  border-bottom: none;
+}
+
+.detail-item .label {
+  color: #7f8c8d;
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+.detail-item .value {
+  color: #2c3e50;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.benefits-section,
+.requirements-section {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  border: 1px solid #e0e0e0;
+}
+
+.benefits-list,
+.requirements-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.benefits-list li,
+.requirements-list li {
+  color: #7f8c8d;
+  font-size: 1rem;
+  padding: 8px 0;
+  position: relative;
+  padding-left: 25px;
+}
+
+.benefits-list li:before {
+  content: "✨";
+  position: absolute;
+  left: 0;
+  color: #f39c12;
+  font-weight: bold;
+}
+
+.requirements-list li:before {
+  content: "📋";
+  position: absolute;
+  left: 0;
+  color: #3498db;
+  font-weight: bold;
+}
+
+.campaign-actions {
+  text-align: center;
+  padding: 30px 0;
+}
+
+.order-now-btn {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  padding: 18px 40px;
+  border-radius: 12px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+}
+
+.order-now-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 35px rgba(102, 126, 234, 0.4);
+}
+
+.campaign-full,
+.campaign-completed,
+.campaign-upcoming,
+.campaign-ended {
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid #e0e0e0;
+}
+
+.campaign-full p,
+.campaign-completed p,
+.campaign-upcoming p,
+.campaign-ended p {
+  color: #7f8c8d;
+  font-size: 1.1rem;
+  margin: 0;
+  text-align: center;
+  font-weight: 500;
+}
+
+.loading-container,
+.error-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 400px;
+  gap: 20px;
+}
+
+.loading {
+  font-size: 1.2rem;
+  color: #7f8c8d;
+}
+
+.error-message {
+  background: #fee;
+  color: #c33;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  border: 1px solid #fcc;
+  font-size: 1.1rem;
+}
+
+.back-link {
+  color: #3498db;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.back-link:hover {
+  color: #2980b9;
+}
+
+/* Quantity Progress Bar Styles */
+.quantity-progress-section {
+  margin: 15px 0;
+  padding: 15px;
+  background: #f8f9fa;
+  border-radius: 10px;
+  border: 1px solid #e9ecef;
+}
+
+.quantity-info {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #495057;
+}
+
+.quantity-info span:first-child {
+  color: #e74c3c;
+}
+
+.quantity-info span:last-child {
+  color: #27ae60;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 10px;
+  background: #e9ecef;
+  border-radius: 5px;
+  overflow: hidden;
+  position: relative;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #3498db, #2980b9);
+  border-radius: 5px;
+  transition: width 0.3s ease;
+  position: relative;
+}
+
+.progress-fill::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .campaign-detail-container {
+    padding: 20px 15px;
+  }
+
+  .campaign-detail-content {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .campaign-image-section {
+    position: static;
+  }
+
+  .campaign-header h1 {
+    font-size: 2rem;
+  }
+
+  .price-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .details-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .order-now-btn {
+    padding: 15px 30px;
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .campaign-header h1 {
+    font-size: 1.8rem;
+  }
+
+  .pricing-section,
+  .benefits-section,
+  .requirements-section {
+    padding: 20px;
+  }
+
+  .price-card {
+    padding: 15px;
+  }
+
+  .total-price {
+    font-size: 1.5rem;
+  }
+}

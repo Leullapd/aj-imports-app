@@ -1,0 +1,278 @@
+.contact-us-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.contact-header {
+  background: white;
+  border-radius: 12px;
+  padding: 20px 30px;
+  margin-bottom: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.contact-header h1 {
+  margin: 0;
+  color: #2c3e50;
+  font-size: 28px;
+  font-weight: 600;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  flex-grow: 1;
+  text-align: center;
+}
+
+.back-link {
+  background: #6c757d;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+.back-link:hover {
+  background: #5a6268;
+  transform: translateY(-2px);
+  color: white;
+}
+
+.contact-content {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+
+.contact-body {
+  padding: 40px;
+  font-size: 16px;
+  line-height: 1.7;
+  color: #2c3e50;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.contact-body h1 {
+  color: #2c3e50;
+  font-size: 32px;
+  font-weight: 700;
+  margin: 0 0 30px 0;
+  text-align: center;
+  border-bottom: 3px solid #667eea;
+  padding-bottom: 15px;
+}
+
+.contact-body h2 {
+  color: #34495e;
+  font-size: 24px;
+  font-weight: 600;
+  margin: 30px 0 15px 0;
+  border-left: 4px solid #667eea;
+  padding-left: 15px;
+}
+
+.contact-body h3 {
+  color: #34495e;
+  font-size: 20px;
+  font-weight: 600;
+  margin: 25px 0 12px 0;
+}
+
+.contact-body p {
+  margin: 15px 0;
+  text-align: justify;
+  color: #2c3e50;
+}
+
+.contact-body ul, .contact-body ol {
+  margin: 15px 0;
+  padding-left: 30px;
+}
+
+.contact-body li {
+  margin: 10px 0;
+  color: #2c3e50;
+}
+
+.contact-body strong {
+  font-weight: 700;
+  color: #2c3e50;
+}
+
+.contact-body em {
+  font-style: italic;
+  color: #34495e;
+}
+
+.contact-body u {
+  text-decoration: underline;
+  text-decoration-color: #667eea;
+}
+
+.contact-body blockquote {
+  background: #f8f9fa;
+  border-left: 4px solid #667eea;
+  padding: 15px 20px;
+  margin: 20px 0;
+  border-radius: 0 8px 8px 0;
+  font-style: italic;
+  color: #495057;
+}
+
+.contact-body a {
+  color: #667eea;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.contact-body a:hover {
+  text-decoration: underline;
+}
+
+.contact-footer {
+  background: white;
+  border-radius: 12px;
+  padding: 20px 30px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.contact-footer p {
+  margin: 5px 0;
+  color: #6c757d;
+  font-size: 14px;
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  color: white;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.error {
+  background: white;
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  margin-bottom: 20px;
+  color: #721c24;
+  font-size: 16px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .contact-us-page {
+    padding: 15px;
+  }
+
+  .contact-header {
+    padding: 15px 20px;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 15px;
+  }
+
+  .contact-header h1 {
+    font-size: 24px;
+    text-align: center;
+    order: 2;
+  }
+
+  .back-link {
+    order: 1;
+    align-self: flex-start;
+  }
+
+  .contact-body {
+    padding: 25px 20px;
+    font-size: 15px;
+  }
+
+  .contact-body h1 {
+    font-size: 28px;
+    margin-bottom: 25px;
+  }
+
+  .contact-body h2 {
+    font-size: 20px;
+    margin: 25px 0 12px 0;
+  }
+
+  .contact-body h3 {
+    font-size: 18px;
+    margin: 20px 0 10px 0;
+  }
+
+  .contact-body ul, .contact-body ol {
+    padding-left: 25px;
+  }
+
+  .contact-footer {
+    padding: 15px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-us-page {
+    padding: 10px;
+  }
+
+  .contact-header {
+    padding: 15px;
+  }
+
+  .contact-header h1 {
+    font-size: 20px;
+  }
+
+  .contact-body {
+    padding: 20px 15px;
+    font-size: 14px;
+  }
+
+  .contact-body h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  .contact-body h2 {
+    font-size: 18px;
+    margin: 20px 0 10px 0;
+  }
+
+  .contact-body h3 {
+    font-size: 16px;
+    margin: 15px 0 8px 0;
+  }
+
+  .contact-body ul, .contact-body ol {
+    padding-left: 20px;
+  }
+
+  .back-link {
+    padding: 8px 16px;
+    font-size: 13px;
+  }
+}

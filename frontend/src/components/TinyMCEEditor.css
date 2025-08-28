@@ -1,0 +1,205 @@
+/* TinyMCE Editor Styles */
+.tinymce-editor {
+  width: 100%;
+  height: 100%;
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+}
+
+.editor-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.save-button {
+  background: linear-gradient(135deg, #28a745, #20c997);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(40, 167, 69, 0.3);
+}
+
+.save-button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(40, 167, 69, 0.4);
+}
+
+.save-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.editor-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  text-align: right;
+}
+
+.editor-title {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+.editor-subtitle {
+  font-size: 12px;
+  opacity: 0.9;
+  font-weight: 400;
+}
+
+.editor-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background: white;
+}
+
+/* TinyMCE Editor Customization */
+.tox-tinymce {
+  border: none !important;
+  border-radius: 0 !important;
+}
+
+.tox .tox-toolbar {
+  background: #f8f9fa !important;
+  border-bottom: 1px solid #e9ecef !important;
+  padding: 8px !important;
+}
+
+.tox .tox-tbtn {
+  background: white !important;
+  border: 1px solid #dee2e6 !important;
+  border-radius: 6px !important;
+  margin: 2px !important;
+  transition: all 0.2s ease !important;
+}
+
+.tox .tox-tbtn:hover {
+  background: #e9ecef !important;
+  border-color: #adb5bd !important;
+  transform: translateY(-1px) !important;
+}
+
+.tox .tox-tbtn--enabled {
+  background: #667eea !important;
+  color: white !important;
+  border-color: #667eea !important;
+}
+
+.tox .tox-edit-area {
+  border: none !important;
+}
+
+.tox .tox-edit-area__iframe {
+  border: none !important;
+}
+
+.tox .tox-statusbar {
+  background: #f8f9fa !important;
+  border-top: 1px solid #e9ecef !important;
+  color: #6c757d !important;
+}
+
+.tox .tox-statusbar__text-container {
+  color: #6c757d !important;
+}
+
+/* Editor Content Styling */
+.tox .tox-edit-area__iframe {
+  background: white !important;
+}
+
+/* Footer */
+.editor-footer {
+  background: #f8f9fa;
+  border-top: 1px solid #e9ecef;
+  padding: 20px;
+}
+
+.footer-info h4 {
+  color: #2c3e50;
+  margin-bottom: 10px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.footer-info ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 8px;
+}
+
+.footer-info li {
+  color: #495057;
+  font-size: 14px;
+  padding: 4px 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .editor-header {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+  
+  .editor-info {
+    align-items: center;
+  }
+  
+  .footer-info ul {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Loading State */
+.tinymce-editor.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+}
+
+.tinymce-editor.loading::before {
+  content: "Loading Professional Document Editor...";
+  font-size: 16px;
+  color: #667eea;
+  font-weight: 500;
+}
+
+/* Custom Scrollbar for Editor */
+.tox .tox-edit-area__iframe::-webkit-scrollbar {
+  width: 8px;
+}
+
+.tox .tox-edit-area__iframe::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.tox .tox-edit-area__iframe::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 4px;
+}
+
+.tox .tox-edit-area__iframe::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}

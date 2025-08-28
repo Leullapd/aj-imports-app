@@ -1,0 +1,67 @@
+// API Configuration
+// This file centralizes all API endpoints
+
+const API_CONFIG = {
+  // Development URL (localhost)
+  DEVELOPMENT: 'http://localhost:5000',
+  
+  // Production URL (replace with your actual backend URL)
+  PRODUCTION: 'https://your-backend-url.railway.app', // Replace this!
+  
+  // Auto-detect environment
+  get BASE_URL() {
+    return process.env.NODE_ENV === 'production' 
+      ? this.PRODUCTION 
+      : this.DEVELOPMENT;
+  }
+};
+
+// API Endpoints
+export const API_ENDPOINTS = {
+  // Auth
+  LOGIN: `${API_CONFIG.BASE_URL}/api/auth/login`,
+  REGISTER: `${API_CONFIG.BASE_URL}/api/auth/register`,
+  ADMIN_LOGIN: `${API_CONFIG.BASE_URL}/api/auth/admin-login`,
+  
+  // Products
+  PRODUCTS: `${API_CONFIG.BASE_URL}/api/products`,
+  
+  // Campaigns
+  CAMPAIGNS: `${API_CONFIG.BASE_URL}/api/campaigns`,
+  PREMIUM_CAMPAIGNS: `${API_CONFIG.BASE_URL}/api/premium-campaigns`,
+  
+  // Orders
+  ORDERS: `${API_CONFIG.BASE_URL}/api/orders`,
+  PREMIUM_ORDERS: `${API_CONFIG.BASE_URL}/api/premium-orders`,
+  
+  // Payments
+  PAYMENTS: `${API_CONFIG.BASE_URL}/api/payments`,
+  PAYMENT_METHODS: `${API_CONFIG.BASE_URL}/api/payment-methods`,
+  
+  // Users
+  USERS: `${API_CONFIG.BASE_URL}/api/users`,
+  
+  // Messages
+  MESSAGES: `${API_CONFIG.BASE_URL}/api/messages`,
+  PRIVATE_MESSAGES: `${API_CONFIG.BASE_URL}/api/private-messages`,
+  
+  // Categories
+  CATEGORIES: `${API_CONFIG.BASE_URL}/api/categories`,
+  
+  // Notifications
+  NOTIFICATIONS: `${API_CONFIG.BASE_URL}/api/notifications`,
+  
+  // Analytics
+  ANALYTICS: `${API_CONFIG.BASE_URL}/api/analytics`,
+  
+  // Documents
+  PRIVACY_POLICY: `${API_CONFIG.BASE_URL}/api/privacy-policy`,
+  TERMS_OF_USE: `${API_CONFIG.BASE_URL}/api/terms-of-use`,
+  FAQS: `${API_CONFIG.BASE_URL}/api/faqs`,
+  CONTACT_US: `${API_CONFIG.BASE_URL}/api/contact-us`,
+  
+  // Health Check
+  HEALTH: `${API_CONFIG.BASE_URL}/api/health`
+};
+
+export default API_CONFIG;
