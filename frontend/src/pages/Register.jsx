@@ -5,6 +5,8 @@ import Footer from '../components/Footer';
 import './Auth.css';
 
 const Register = () => {
+  const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',

@@ -5,6 +5,8 @@ import Footer from '../components/Footer';
 import './Dashboard.css';
 
 const Dashboard = () => {
+  const navigate = useNavigate();
+
       const [stats, setStats] = useState({
     totalOrders: 0,
     pendingPayments: 0,

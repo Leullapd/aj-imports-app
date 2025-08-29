@@ -5,6 +5,8 @@ import Footer from '../components/Footer';
 import './Payment.css';
 
 const Payment = () => {
+  const navigate = useNavigate();
+
   const { orderId } = useParams();
     const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');

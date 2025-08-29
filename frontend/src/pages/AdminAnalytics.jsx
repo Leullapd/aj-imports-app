@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import './AdminAnalytics.css';
 
 const AdminAnalytics = () => {
+  const navigate = useNavigate();
+
   const [analytics, setAnalytics] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');

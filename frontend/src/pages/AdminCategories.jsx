@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import './Admin.css';
 
 const AdminCategories = () => {
+  const navigate = useNavigate();
+
   const [categories, setCategories] = useState([]);
   const [loading, setLoading] = useState(true);
   const [showAddForm, setShowAddForm] = useState(false);

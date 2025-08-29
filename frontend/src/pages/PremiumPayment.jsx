@@ -3,6 +3,8 @@ import { useParams, useNavigate } from 'react-router-dom';
 import './PremiumPayment.css';
 
 const PremiumPayment = () => {
+  const navigate = useNavigate();
+
   const { orderId, round = 'firstPayment' } = useParams();
     const [order, setOrder] = useState(null);
   const [loading, setLoading] = useState(true);

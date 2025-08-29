@@ -4,6 +4,8 @@ import SearchBar from '../components/SearchBar';
 import './Admin.css';
 
 const AdminProducts = () => {
+  const navigate = useNavigate();
+
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [categories, setCategories] = useState([]);

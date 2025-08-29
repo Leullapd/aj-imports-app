@@ -8,6 +8,8 @@ import ProductDetailModal from '../components/ProductDetailModal';
 import './Campaigns.css';
 
 const Campaigns = () => {
+  const navigate = useNavigate();
+
   const [searchParams, setSearchParams] = useSearchParams();
     const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);

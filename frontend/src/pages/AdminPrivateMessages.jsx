@@ -5,6 +5,8 @@ import './AdminPrivateMessages.css';
 import './Admin.css';
 
 const AdminPrivateMessages = () => {
+  const navigate = useNavigate();
+
   const [conversations, setConversations] = useState([]);
   const [selectedUser, setSelectedUser] = useState(null);
   const [messages, setMessages] = useState([]);

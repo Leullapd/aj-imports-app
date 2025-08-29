@@ -5,6 +5,8 @@ import './AdminProfile.css';
 import './Admin.css';
 
 const AdminProfile = () => {
+  const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
     username: '',
     email: '',

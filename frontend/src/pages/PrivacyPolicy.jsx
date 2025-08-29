@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import './PrivacyPolicy.css';
 
 const PrivacyPolicy = () => {
+  const navigate = useNavigate();
+
   const [content, setContent] = useState('');
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState('');

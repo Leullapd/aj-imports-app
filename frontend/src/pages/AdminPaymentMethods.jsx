@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import './Admin.css';
 
 const AdminPaymentMethods = () => {
+  const navigate = useNavigate();
+
   const [paymentMethods, setPaymentMethods] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');

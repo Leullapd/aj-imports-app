@@ -10,6 +10,8 @@ import ProductDetailModal from '../components/ProductDetailModal';
 import './Home.css';
 
 const Home = () => {
+  const navigate = useNavigate();
+
     const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [orderModalOpen, setOrderModalOpen] = useState(false);

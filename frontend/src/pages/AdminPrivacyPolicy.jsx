@@ -4,6 +4,8 @@ import TinyMCEEditor from '../components/TinyMCEEditor';
 import './AdminPrivacyPolicy.css';
 
 const AdminPrivacyPolicy = () => {
+  const navigate = useNavigate();
+
   const [content, setContent] = useState('');
   const [isLoading, setIsLoading] = useState(true);
   const [saveMessage, setSaveMessage] = useState('');

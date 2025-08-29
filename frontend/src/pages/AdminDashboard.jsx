@@ -3,6 +3,8 @@ import { Link, useNavigate } from 'react-router-dom';
 import './Admin.css';
 
 const AdminDashboard = () => {
+  const navigate = useNavigate();
+
   const [stats, setStats] = useState({
     totalProducts: 0,
     totalCampaigns: 0,

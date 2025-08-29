@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import './Admin.css';
 
 const AdminMessages = () => {
+  const navigate = useNavigate();
+
   const [messages, setMessages] = useState([]);
   const [loading, setLoading] = useState(true);
   const [newMessage, setNewMessage] = useState('');
