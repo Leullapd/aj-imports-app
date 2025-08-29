@@ -2,10 +2,11 @@
   base = "frontend"
   command = "npm run build"
   publish = "frontend/build"
-  environment = { ESLINT_NO_DEV_ERRORS = "true", DISABLE_ESLINT_PLUGIN = "true" }
 
 [build.environment]
   NODE_VERSION = "18"
+  ESLINT_NO_DEV_ERRORS = "true"
+  DISABLE_ESLINT_PLUGIN = "true"
 
 [[redirects]]
   from = "/*"
