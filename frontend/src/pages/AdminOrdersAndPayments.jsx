@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { API_ENDPOINTS } from '../config/api';
 import './AdminOrdersAndPayments.css';
 
 const AdminOrdersAndPayments = () => {
@@ -46,7 +47,7 @@ const AdminOrdersAndPayments = () => {
       const orderIds = orders.map(order => order._id);
       
       // Fetch notifications for all orders
-      const response = await fetch(`http://localhost:5000/api/notifications/orders`, {
+      const response = await fetch(`API_ENDPOINTS.NOTIFICATIONS/orders`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -86,7 +87,7 @@ const AdminOrdersAndPayments = () => {
       
       // Mark all notifications for this order as read
       for (const notification of notifications) {
-        await fetch(`http://localhost:5000/api/notifications/read/${notification._id}`, {
+        await fetch(`API_ENDPOINTS.NOTIFICATIONS/read/${notification._id}`, {
           method: 'PUT',
           headers: {
             'Authorization': `Bearer ${token}`
@@ -114,7 +115,7 @@ const AdminOrdersAndPayments = () => {
         return;
       }
 
-      let url = 'http://localhost:5000/api/orders';
+      let url = 'API_ENDPOINTS.ORDERS';
       const params = new URLSearchParams();
       if (filters.status) params.append('status', filters.status);
       if (filters.paymentStatus && filters.paymentStatus !== 'pending-second') {
@@ -152,7 +153,7 @@ const AdminOrdersAndPayments = () => {
   const handleStatusUpdate = async (orderId, newStatus) => {
     try {
       const token = localStorage.getItem('adminToken');
-      const response = await fetch(`http://localhost:5000/api/orders/${orderId}`, {
+      const response = await fetch(`API_ENDPOINTS.ORDERS/${orderId}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -177,7 +178,7 @@ const AdminOrdersAndPayments = () => {
   const handlePaymentStatusUpdate = async (orderId, newPaymentStatus) => {
     try {
       const token = localStorage.getItem('adminToken');
-      const response = await fetch(`http://localhost:5000/api/payments/${orderId}/status`, {
+      const response = await fetch(`API_ENDPOINTS.PAYMENTS/${orderId}/status`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -220,7 +221,7 @@ const AdminOrdersAndPayments = () => {
       }
 
       console.log('Payment verification request:', { orderId, round, status, notes });
-      const response = await fetch(`http://localhost:5000/api/payments/verify/${orderId}/${round}`, {
+      const response = await fetch(`API_ENDPOINTS.PAYMENTS/verify/${orderId}/${round}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -294,7 +295,7 @@ const AdminOrdersAndPayments = () => {
   const handleTrackingUpdate = async (orderId, trackingNumber) => {
     try {
       const token = localStorage.getItem('adminToken');
-      const response = await fetch(`http://localhost:5000/api/orders/${orderId}`, {
+      const response = await fetch(`API_ENDPOINTS.ORDERS/${orderId}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -329,7 +330,7 @@ const AdminOrdersAndPayments = () => {
       }
 
       console.log('Deleting order:', orderId, 'Type:', typeof orderId, 'Length:', orderId.length);
-      const response = await fetch(`http://localhost:5000/api/orders/${orderId}`, {
+      const response = await fetch(`API_ENDPOINTS.ORDERS/${orderId}`, {
         method: 'DELETE',
         headers: {
           'Authorization': `Bearer ${token}`
@@ -368,7 +369,7 @@ const AdminOrdersAndPayments = () => {
       }
 
       console.log('Bulk deleting orders with status:', statusFilter);
-      const response = await fetch(`http://localhost:5000/api/orders/bulk-delete`, {
+      const response = await fetch(`API_ENDPOINTS.ORDERS/bulk-delete`, {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',
@@ -969,7 +970,7 @@ const AdminOrdersAndPayments = () => {
                          <span className="label">Payment Screenshot:</span>
                          <span className="value">
                                                       <a 
-                              href={`http://localhost:5000/payment_screenshots/${selectedOrder.payment.paymentScreenshot}`} 
+                              href={`${API_ENDPOINTS.BASE_URL}/payment_screenshots/${selectedOrder.payment.paymentScreenshot}`} 
                               target="_blank" 
                               rel="noopener noreferrer"
                               className="screenshot-link"
@@ -1039,7 +1040,7 @@ const AdminOrdersAndPayments = () => {
                              <span className="label">Payment Screenshot:</span>
                              <span className="value">
                                <a 
-                                 href={`http://localhost:5000/payment_screenshots/${selectedOrder.paymentRounds.firstPayment.paymentDetails.paymentScreenshot}`} 
+                                 href={`${API_ENDPOINTS.BASE_URL}/payment_screenshots/${selectedOrder.paymentRounds.firstPayment.paymentDetails.paymentScreenshot}`} 
                                  target="_blank" 
                                  rel="noopener noreferrer"
                                  className="screenshot-link"
@@ -1104,7 +1105,7 @@ const AdminOrdersAndPayments = () => {
                              <span className="label">Payment Screenshot:</span>
                              <span className="value">
                                <a 
-                                 href={`http://localhost:5000/payment_screenshots/${selectedOrder.paymentRounds.secondPayment.paymentDetails.paymentScreenshot}`} 
+                                 href={`${API_ENDPOINTS.BASE_URL}/payment_screenshots/${selectedOrder.paymentRounds.secondPayment.paymentDetails.paymentScreenshot}`} 
                                  target="_blank" 
                                  rel="noopener noreferrer"
                                  className="screenshot-link"

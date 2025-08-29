@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import { API_ENDPOINTS } from '../config/api';
 import './PremiumCampaignDetail.css';
 
 const PremiumCampaignDetail = () => {
@@ -18,7 +19,7 @@ const PremiumCampaignDetail = () => {
   const fetchCampaign = async () => {
     try {
       setLoading(true);
-      const response = await fetch(`http://localhost:5000/api/premium-campaigns/${id}`);
+      const response = await fetch(`API_ENDPOINTS.PREMIUM_CAMPAIGNS/${id}`);
       const data = await response.json();
 
       if (response.ok) {
@@ -114,7 +115,7 @@ const PremiumCampaignDetail = () => {
           <div className="campaign-image-section">
             <div className="campaign-image-container">
               <img 
-                src={`http://localhost:5000/${campaign.image}`} 
+                src={`${API_ENDPOINTS.BASE_URL}/${campaign.image}`} 
                 alt={campaign.title}
                 onError={(e) => {
                   e.target.src = '/placeholder-image.jpg';

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Footer from '../components/Footer';
+import { API_ENDPOINTS } from '../config/api';
 import './AdminProfile.css';
 import './Admin.css';
 
@@ -47,7 +48,7 @@ const AdminProfile = () => {
   const fetchAdminProfile = async () => {
     try {
       const adminToken = localStorage.getItem('adminToken');
-             const response = await fetch('http://localhost:5000/api/auth/admin/profile', {
+             const response = await fetch('`${API_ENDPOINTS.BASE_URL}/api/auth/admin/profile`', {
         headers: {
           'Authorization': `Bearer ${adminToken}`
         }
@@ -142,7 +143,7 @@ const AdminProfile = () => {
              console.log('Sending update data:', updateData);
        console.log('Admin token:', adminToken ? 'Present' : 'Missing');
        
-       const response = await fetch('http://localhost:5000/api/auth/admin/profile', {
+       const response = await fetch('`${API_ENDPOINTS.BASE_URL}/api/auth/admin/profile`', {
          method: 'PUT',
          headers: {
            'Content-Type': 'application/json',

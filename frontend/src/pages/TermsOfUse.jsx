@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { API_ENDPOINTS } from '../config/api';
 import './TermsOfUse.css';
 
 const TermsOfUse = () => {
@@ -13,7 +14,7 @@ const TermsOfUse = () => {
 
   const fetchTermsOfUse = async () => {
     try {
-      const response = await fetch('http://localhost:5000/api/terms-of-use/public');
+      const response = await fetch('API_ENDPOINTS.TERMS_OF_USE/public');
       if (response.ok) {
         const data = await response.json();
         setContent(data.content);

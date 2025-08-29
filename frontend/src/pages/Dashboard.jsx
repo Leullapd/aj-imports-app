@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import { API_ENDPOINTS } from '../config/api';
 import './Dashboard.css';
 
 const Dashboard = () => {
@@ -81,7 +82,7 @@ const Dashboard = () => {
       }
 
       // Fetch user stats
-      const statsResponse = await fetch('http://localhost:5000/api/users/stats', {
+      const statsResponse = await fetch('API_ENDPOINTS.USERS/stats', {
         headers: {
           'Authorization': `Bearer ${token}`
         }
@@ -93,7 +94,7 @@ const Dashboard = () => {
       }
 
       // Fetch recent orders
-      const ordersResponse = await fetch('http://localhost:5000/api/orders/my-orders?limit=5', {
+      const ordersResponse = await fetch('API_ENDPOINTS.ORDERS/my-orders?limit=5', {
         headers: {
           'Authorization': `Bearer ${token}`
         }
@@ -105,7 +106,7 @@ const Dashboard = () => {
       }
 
       // Fetch recent premium orders
-      const premiumOrdersResponse = await fetch('http://localhost:5000/api/premium-orders/my-orders?limit=5', {
+      const premiumOrdersResponse = await fetch('API_ENDPOINTS.PREMIUM_ORDERS/my-orders?limit=5', {
         headers: {
           'Authorization': `Bearer ${token}`
         }
@@ -133,7 +134,7 @@ const Dashboard = () => {
   };
 
   const fetchMessages = () => {
-    fetch('http://localhost:5000/api/messages')
+    fetch('API_ENDPOINTS.MESSAGES')
       .then(res => res.json())
       .then(data => {
         setMessages(data);
@@ -145,7 +146,7 @@ const Dashboard = () => {
   const fetchPrivateMessages = () => {
     if (!user) return;
     
-    fetch('http://localhost:5000/api/private-messages/user', {
+    fetch('API_ENDPOINTS.PRIVATE_MESSAGES/user', {
       headers: {
         'Authorization': `Bearer ${localStorage.getItem('token')}`
       }
@@ -190,7 +191,7 @@ const Dashboard = () => {
   const fetchUnreadCount = () => {
     if (!user) return;
     
-    fetch('http://localhost:5000/api/private-messages/user/unread-count', {
+    fetch('API_ENDPOINTS.PRIVATE_MESSAGES/user/unread-count', {
       headers: {
         'Authorization': `Bearer ${localStorage.getItem('token')}`
       }
@@ -207,7 +208,7 @@ const Dashboard = () => {
   const markMessagesAsRead = () => {
     if (!user) return;
     
-    fetch('http://localhost:5000/api/private-messages/user/read-all', {
+    fetch('API_ENDPOINTS.PRIVATE_MESSAGES/user/read-all', {
       method: 'PUT',
       headers: {
         'Authorization': `Bearer ${localStorage.getItem('token')}`
@@ -236,7 +237,7 @@ const Dashboard = () => {
       setMessages(prev => [...prev, { ...msg, createdAt: new Date().toISOString() }]);
       scrollToBottom();
       // Save to backend
-      await fetch('http://localhost:5000/api/messages', {
+      await fetch('API_ENDPOINTS.MESSAGES', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(msg),
@@ -279,7 +280,7 @@ const Dashboard = () => {
     
     // Save to backend
     try {
-      const response = await fetch('http://localhost:5000/api/private-messages/user', {
+      const response = await fetch('API_ENDPOINTS.PRIVATE_MESSAGES/user', {
         method: 'POST',
         headers: { 
           'Content-Type': 'application/json',
@@ -327,7 +328,7 @@ const Dashboard = () => {
 
   const handleEditSave = async (msg, idx) => {
     if (!editInput.trim()) return;
-    await fetch(`http://localhost:5000/api/messages/${msg._id}`, {
+    await fetch(`API_ENDPOINTS.MESSAGES/${msg._id}`, {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ user: user?.name || 'User', text: editInput }),
@@ -339,7 +340,7 @@ const Dashboard = () => {
 
   const handleDelete = async (msg) => {
     if (!window.confirm('Are you sure you want to delete this message?')) return;
-    await fetch(`http://localhost:5000/api/messages/${msg._id}`, {
+    await fetch(`API_ENDPOINTS.MESSAGES/${msg._id}`, {
       method: 'DELETE',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ user: user?.name || 'User' }),
@@ -430,7 +431,7 @@ const Dashboard = () => {
       const token = localStorage.getItem('token');
       if (!token) return;
 
-      const response = await fetch('http://localhost:5000/api/notifications/user', {
+      const response = await fetch('API_ENDPOINTS.NOTIFICATIONS/user', {
         headers: {
           'Authorization': `Bearer ${token}`
         }
@@ -451,7 +452,7 @@ const Dashboard = () => {
       const token = localStorage.getItem('token');
       if (!token) return;
 
-      const response = await fetch('http://localhost:5000/api/notifications/unread-count', {
+      const response = await fetch('API_ENDPOINTS.NOTIFICATIONS/unread-count', {
         headers: {
           'Authorization': `Bearer ${token}`
         }
@@ -481,7 +482,7 @@ const Dashboard = () => {
       const token = localStorage.getItem('token');
       if (!token) return;
 
-      const response = await fetch(`http://localhost:5000/api/notifications/read/${notificationId}`, {
+      const response = await fetch(`API_ENDPOINTS.NOTIFICATIONS/read/${notificationId}`, {
         method: 'PUT',
         headers: {
           'Authorization': `Bearer ${token}`
@@ -506,7 +507,7 @@ const Dashboard = () => {
       const token = localStorage.getItem('token');
       if (!token) return;
 
-      const response = await fetch('http://localhost:5000/api/notifications/read-all', {
+      const response = await fetch('API_ENDPOINTS.NOTIFICATIONS/read-all', {
         method: 'PUT',
         headers: {
           'Authorization': `Bearer ${token}`
@@ -529,7 +530,7 @@ const Dashboard = () => {
       const token = localStorage.getItem('token');
       if (!token) return;
 
-      const response = await fetch(`http://localhost:5000/api/notifications/${notificationId}`, {
+      const response = await fetch(`API_ENDPOINTS.NOTIFICATIONS/${notificationId}`, {
         method: 'DELETE',
         headers: {
           'Authorization': `Bearer ${token}`

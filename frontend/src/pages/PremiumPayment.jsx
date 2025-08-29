@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
+import { API_ENDPOINTS } from '../config/api';
 import './PremiumPayment.css';
 
 const PremiumPayment = () => {
@@ -37,7 +38,7 @@ const PremiumPayment = () => {
         return;
       }
 
-      const response = await fetch(`http://localhost:5000/api/premium-orders/${orderId}`, {
+      const response = await fetch(`API_ENDPOINTS.PREMIUM_ORDERS/${orderId}`, {
         headers: {
           'Authorization': `Bearer ${token}`
         }
@@ -111,7 +112,7 @@ const PremiumPayment = () => {
       formDataToSend.append('paymentDate', formData.paymentDate);
       formDataToSend.append('paymentScreenshot', formData.paymentScreenshot);
 
-      const response = await fetch(`http://localhost:5000/api/premium-orders/round/${orderId}/${round}`, {
+      const response = await fetch(`API_ENDPOINTS.PREMIUM_ORDERS/round/${orderId}/${round}`, {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`

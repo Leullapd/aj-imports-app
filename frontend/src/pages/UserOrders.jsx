@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import ShippingCountdown from '../components/ShippingCountdown';
+import { API_ENDPOINTS } from '../config/api';
 import './UserOrders.css';
 
 
@@ -18,7 +19,7 @@ const UserOrders = () => {
       setLoading(false);
       return;
     }
-    fetch(`http://localhost:5000/api/orders?user=${user.id || user._id}`)
+    fetch(`API_ENDPOINTS.ORDERS?user=${user.id || user._id}`)
       .then(res => res.json())
       .then(data => {
         setOrders(data);

@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Footer from '../components/Footer';
+import { API_ENDPOINTS } from '../config/api';
 import './AdminPrivateMessages.css';
 import './Admin.css';
 
@@ -51,7 +52,7 @@ const AdminPrivateMessages = () => {
     try {
       const adminToken = localStorage.getItem('adminToken');
       
-      const response = await fetch('http://localhost:5000/api/private-messages/admin', {
+      const response = await fetch('API_ENDPOINTS.PRIVATE_MESSAGES/admin', {
         headers: {
           'Authorization': `Bearer ${adminToken}`
         }
@@ -90,7 +91,7 @@ const AdminPrivateMessages = () => {
 
   const fetchConversation = async (userId) => {
     try {
-      const response = await fetch(`http://localhost:5000/api/private-messages/conversation/${userId}`, {
+      const response = await fetch(`API_ENDPOINTS.PRIVATE_MESSAGES/conversation/${userId}`, {
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('adminToken')}`
         }
@@ -113,7 +114,7 @@ const AdminPrivateMessages = () => {
 
   const markConversationAsRead = async (userId) => {
     try {
-      await fetch(`http://localhost:5000/api/private-messages/conversation/read/${userId}`, {
+      await fetch(`API_ENDPOINTS.PRIVATE_MESSAGES/conversation/read/${userId}`, {
         method: 'PUT',
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('adminToken')}`
@@ -151,7 +152,7 @@ const AdminPrivateMessages = () => {
     scrollToBottom();
 
     try {
-      const response = await fetch(`http://localhost:5000/api/private-messages/admin/${selectedUser._id}`, {
+      const response = await fetch(`API_ENDPOINTS.PRIVATE_MESSAGES/admin/${selectedUser._id}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

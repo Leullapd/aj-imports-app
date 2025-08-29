@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import TinyMCEEditor from '../components/TinyMCEEditor';
+import { API_ENDPOINTS } from '../config/api';
 import './AdminPrivacyPolicy.css';
 
 const AdminPrivacyPolicy = () => {
@@ -21,7 +22,7 @@ const AdminPrivacyPolicy = () => {
         return;
       }
 
-      const response = await fetch('http://localhost:5000/api/privacy-policy', {
+      const response = await fetch('API_ENDPOINTS.PRIVACY_POLICY', {
         headers: {
           'Authorization': `Bearer ${token}`
         }
@@ -50,7 +51,7 @@ const AdminPrivacyPolicy = () => {
         return;
       }
 
-      const response = await fetch('http://localhost:5000/api/privacy-policy', {
+      const response = await fetch('API_ENDPOINTS.PRIVACY_POLICY', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import { API_ENDPOINTS } from '../config/api';
 import './Payment.css';
 
 const Payment = () => {
@@ -54,7 +55,7 @@ const Payment = () => {
     // Fetch order details using orderId from URL
     const fetchOrderDetails = async () => {
       try {
-        const response = await fetch(`http://localhost:5000/api/orders/${orderId}`);
+        const response = await fetch(`API_ENDPOINTS.ORDERS/${orderId}`);
         if (response.ok) {
                   const order = await response.json();
         setOrderDetails(order);
@@ -98,7 +99,7 @@ const Payment = () => {
   const fetchPaymentMethods = async () => {
     try {
       console.log('Fetching payment methods...');
-      const response = await fetch('http://localhost:5000/api/payment-methods');
+      const response = await fetch('API_ENDPOINTS.PAYMENT_METHODS');
       console.log('Payment methods response status:', response.status);
       
       if (response.ok) {
@@ -179,7 +180,7 @@ const Payment = () => {
       
       if (orderDetails.paymentPlan === 'installment') {
         // Use the new two-payment system for installment plans
-        paymentUrl = `http://localhost:5000/api/payments/round/${orderId}/${currentPaymentRound}`;
+        paymentUrl = `API_ENDPOINTS.PAYMENTS/round/${orderId}/${currentPaymentRound}`;
         formData.append('senderName', paymentData.senderName);
         formData.append('paymentMethod', paymentData.paymentMethod);
         formData.append('transactionId', paymentData.transactionId);
@@ -187,7 +188,7 @@ const Payment = () => {
         formData.append('paymentScreenshot', paymentData.paymentScreenshot);
       } else {
         // Use the legacy payment system for full payments
-        paymentUrl = 'http://localhost:5000/api/payments';
+        paymentUrl = 'API_ENDPOINTS.PAYMENTS';
         formData.append('orderId', orderId);
         formData.append('senderName', paymentData.senderName);
         formData.append('paymentMethod', paymentData.paymentMethod);

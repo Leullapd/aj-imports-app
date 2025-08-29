@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 
+import { API_ENDPOINTS } from '../config/api';
 const TestProfile = () => {
   const [phone, setPhone] = useState('');
   const [password, setPassword] = useState('');
@@ -26,7 +27,7 @@ const TestProfile = () => {
         updateData.password = password;
       }
 
-      const response = await fetch('http://localhost:5000/api/users/profile', {
+      const response = await fetch('API_ENDPOINTS.USERS/profile', {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',

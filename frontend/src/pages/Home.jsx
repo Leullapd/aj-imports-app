@@ -7,6 +7,7 @@ import Footer from '../components/Footer';
 import OrderModal from '../components/OrderModal';
 import ProductDetailModal from '../components/ProductDetailModal';
 
+import { API_ENDPOINTS } from '../config/api';
 import './Home.css';
 
 const Home = () => {
@@ -20,7 +21,7 @@ const Home = () => {
 
   useEffect(() => {
     // Fetch products from your backend API
-    fetch('http://localhost:5000/api/products')
+    fetch('API_ENDPOINTS.PRODUCTS')
       .then(res => res.json())
       .then(data => {
         setProducts(data);
@@ -62,7 +63,7 @@ const Home = () => {
 
   useEffect(() => {
     // Fetch categories from API
-    fetch('http://localhost:5000/api/categories')
+    fetch('API_ENDPOINTS.CATEGORIES')
       .then(res => res.json())
       .then(data => {
         setCategories(data);

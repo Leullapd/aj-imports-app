@@ -5,6 +5,7 @@ import Footer from '../components/Footer';
 import ProductCard from '../components/ProductCard';
 import OrderModal from '../components/OrderModal';
 import ProductDetailModal from '../components/ProductDetailModal';
+import { API_ENDPOINTS } from '../config/api';
 import './Campaigns.css';
 
 const Campaigns = () => {
@@ -19,7 +20,7 @@ const Campaigns = () => {
   const [selectedProductForDetail, setSelectedProductForDetail] = useState(null);
 
   useEffect(() => {
-    fetch('http://localhost:5000/api/products')
+    fetch('API_ENDPOINTS.PRODUCTS')
       .then(res => res.json())
       .then(data => {
         setProducts(data);

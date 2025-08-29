@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import { API_ENDPOINTS } from '../config/api';
 import './Auth.css';
 
 const Register = () => {
@@ -63,7 +64,7 @@ const Register = () => {
       formDataToSend.append('password', formData.password);
       formDataToSend.append('idImage', formData.idImage);
 
-      const response = await fetch('http://localhost:5000/api/auth/register', {
+      const response = await fetch('API_ENDPOINTS.REGISTER', {
         method: 'POST',
         body: formDataToSend,
       });

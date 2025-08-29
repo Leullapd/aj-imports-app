@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import TinyMCEEditor from '../components/TinyMCEEditor';
+import { API_ENDPOINTS } from '../config/api';
 import './AdminSettings.css';
 
 const AdminSettings = () => {
@@ -31,13 +32,13 @@ const AdminSettings = () => {
       }
 
       const endpoints = {
-        'privacy-policy': '/api/privacy-policy/admin',
-        'terms-of-use': '/api/terms-of-use/admin',
-        'faqs': '/api/faqs/admin',
-        'contact-us': '/api/contact-us/admin'
+        'privacy-policy': `${API_ENDPOINTS.PRIVACY_POLICY}/admin`,
+        'terms-of-use': `${API_ENDPOINTS.TERMS_OF_USE}/admin`,
+        'faqs': `${API_ENDPOINTS.FAQS}/admin`,
+        'contact-us': `${API_ENDPOINTS.CONTACT_US}/admin`
       };
 
-      const response = await fetch(`http://localhost:5000${endpoints[documentType]}`, {
+      const response = await fetch(endpoints[documentType], {
         headers: {
           'Authorization': `Bearer ${token}`
         }
@@ -67,13 +68,13 @@ const AdminSettings = () => {
       }
 
       const endpoints = {
-        'privacy-policy': '/api/privacy-policy/admin',
-        'terms-of-use': '/api/terms-of-use/admin',
-        'faqs': '/api/faqs/admin',
-        'contact-us': '/api/contact-us/admin'
+        'privacy-policy': `${API_ENDPOINTS.PRIVACY_POLICY}/admin`,
+        'terms-of-use': `${API_ENDPOINTS.TERMS_OF_USE}/admin`,
+        'faqs': `${API_ENDPOINTS.FAQS}/admin`,
+        'contact-us': `${API_ENDPOINTS.CONTACT_US}/admin`
       };
 
-      const response = await fetch(`http://localhost:5000${endpoints[activeDocumentTab]}`, {
+      const response = await fetch(endpoints[activeDocumentTab], {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

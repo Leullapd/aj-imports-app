@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { API_ENDPOINTS } from '../config/api';
 import './AdminAnalytics.css';
 
 const AdminAnalytics = () => {
@@ -22,7 +23,7 @@ const AdminAnalytics = () => {
         return;
       }
 
-      const response = await fetch('http://localhost:5000/api/analytics/dashboard', {
+      const response = await fetch('API_ENDPOINTS.ANALYTICS/dashboard', {
         headers: {
           'Authorization': `Bearer ${token}`
         }

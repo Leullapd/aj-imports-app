@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { API_ENDPOINTS } from '../config/api';
 import './Admin.css';
 
 const AdminPaymentMethods = () => {
@@ -31,7 +32,7 @@ const AdminPaymentMethods = () => {
   const fetchPaymentMethods = async () => {
     try {
       const adminToken = localStorage.getItem('adminToken');
-      const response = await fetch('http://localhost:5000/api/payment-methods/admin', {
+      const response = await fetch('API_ENDPOINTS.PAYMENT_METHODS/admin', {
         headers: {
           'Authorization': `Bearer ${adminToken}`
         }
@@ -65,8 +66,8 @@ const AdminPaymentMethods = () => {
     try {
       const adminToken = localStorage.getItem('adminToken');
       const url = editingMethod 
-        ? `http://localhost:5000/api/payment-methods/${editingMethod._id}`
-        : 'http://localhost:5000/api/payment-methods';
+        ? `API_ENDPOINTS.PAYMENT_METHODS/${editingMethod._id}`
+        : 'API_ENDPOINTS.PAYMENT_METHODS';
       
       const method = editingMethod ? 'PUT' : 'POST';
       
@@ -111,7 +112,7 @@ const AdminPaymentMethods = () => {
     if (window.confirm('Are you sure you want to delete this payment method?')) {
       try {
         const adminToken = localStorage.getItem('adminToken');
-        const response = await fetch(`http://localhost:5000/api/payment-methods/${methodId}`, {
+        const response = await fetch(`API_ENDPOINTS.PAYMENT_METHODS/${methodId}`, {
           method: 'DELETE',
           headers: {
             'Authorization': `Bearer ${adminToken}`

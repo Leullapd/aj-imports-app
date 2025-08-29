@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { API_ENDPOINTS } from '../config/api';
 import './PrivacyPolicy.css';
 
 const PrivacyPolicy = () => {
@@ -14,7 +15,7 @@ const PrivacyPolicy = () => {
 
   const fetchPrivacyPolicy = async () => {
     try {
-             const response = await fetch('http://localhost:5000/api/privacy-policy/public');
+             const response = await fetch('API_ENDPOINTS.PRIVACY_POLICY/public');
       
       if (response.ok) {
         const data = await response.json();

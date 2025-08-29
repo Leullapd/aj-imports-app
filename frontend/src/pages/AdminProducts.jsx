@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import SearchBar from '../components/SearchBar';
+import { API_ENDPOINTS } from '../config/api';
 import './Admin.css';
 
 const AdminProducts = () => {
@@ -56,7 +57,7 @@ const AdminProducts = () => {
     try {
       setRefreshing(true);
       // Fetch all products (including inactive ones) for admin
-      const response = await fetch('http://localhost:5000/api/products?admin=true');
+      const response = await fetch('API_ENDPOINTS.PRODUCTS?admin=true');
       const data = await response.json();
       setProducts(data);
       setFilteredProducts(data);
@@ -72,7 +73,7 @@ const AdminProducts = () => {
   const fetchCategories = async () => {
     try {
       const adminToken = localStorage.getItem('adminToken');
-      const response = await fetch('http://localhost:5000/api/categories/admin', {
+      const response = await fetch('API_ENDPOINTS.CATEGORIES/admin', {
         headers: {
           'Authorization': `Bearer ${adminToken}`
         }
@@ -118,8 +119,8 @@ const AdminProducts = () => {
     
     try {
       const url = editingProduct 
-        ? `http://localhost:5000/api/products/${editingProduct._id}`
-        : 'http://localhost:5000/api/products';
+        ? `API_ENDPOINTS.PRODUCTS/${editingProduct._id}`
+        : 'API_ENDPOINTS.PRODUCTS';
       
       const method = editingProduct ? 'PUT' : 'POST';
       
@@ -174,7 +175,7 @@ const AdminProducts = () => {
   const handleDelete = async (productId) => {
     if (window.confirm('Are you sure you want to delete this product?')) {
       try {
-        const response = await fetch(`http://localhost:5000/api/products/${productId}`, {
+        const response = await fetch(`API_ENDPOINTS.PRODUCTS/${productId}`, {
           method: 'DELETE',
         });
 
@@ -189,7 +190,7 @@ const AdminProducts = () => {
 
   const handleToggleActive = async (productId, currentActive) => {
     try {
-      const response = await fetch(`http://localhost:5000/api/products/${productId}`, {
+      const response = await fetch(`API_ENDPOINTS.PRODUCTS/${productId}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import SearchBar from '../components/SearchBar';
+import { API_ENDPOINTS } from '../config/api';
 import './Admin.css';
 
 const AdminUsers = () => {
@@ -26,12 +27,12 @@ const AdminUsers = () => {
   const fetchUsers = async () => {
     try {
       setRefreshing(true);
-      const response = await fetch('http://localhost:5000/api/users');
+      const response = await fetch('API_ENDPOINTS.USERS');
       const data = await response.json();
       // Process users to add full image URLs
       const processedUsers = data.map(user => ({
         ...user,
-        idImageUrl: user.idImage ? `http://localhost:5000/${user.idImage}` : null
+        idImageUrl: user.idImage ? `${API_ENDPOINTS.BASE_URL}/${user.idImage}` : null
       }));
       setUsers(processedUsers);
       setFilteredUsers(processedUsers);
@@ -66,7 +67,7 @@ const AdminUsers = () => {
   const handleDelete = async (userId) => {
     if (window.confirm('Are you sure you want to delete this user?')) {
       try {
-        const response = await fetch(`http://localhost:5000/api/users/${userId}`, {
+        const response = await fetch(`API_ENDPOINTS.USERS/${userId}`, {
           method: 'DELETE',
         });
         if (response.ok) {

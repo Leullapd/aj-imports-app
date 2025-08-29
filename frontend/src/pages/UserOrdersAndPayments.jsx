@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import ShippingCountdown from '../components/ShippingCountdown';
+import { API_ENDPOINTS } from '../config/api';
 import './UserOrdersAndPayments.css';
 
 const UserOrdersAndPayments = () => {
@@ -55,7 +56,7 @@ const UserOrdersAndPayments = () => {
       const orderIds = orders.map(order => order._id);
       
       // Fetch notifications for all orders
-      const response = await fetch(`http://localhost:5000/api/notifications/orders`, {
+      const response = await fetch(`API_ENDPOINTS.NOTIFICATIONS/orders`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -95,7 +96,7 @@ const UserOrdersAndPayments = () => {
       
       // Mark all notifications for this order as read
       for (const notification of notifications) {
-        await fetch(`http://localhost:5000/api/notifications/read/${notification._id}`, {
+        await fetch(`API_ENDPOINTS.NOTIFICATIONS/read/${notification._id}`, {
           method: 'PUT',
           headers: {
             'Authorization': `Bearer ${token}`
@@ -119,7 +120,7 @@ const UserOrdersAndPayments = () => {
       setLoading(true);
       setError('');
 
-      let url = `http://localhost:5000/api/orders?user=${userId}`;
+      let url = `API_ENDPOINTS.ORDERS?user=${userId}`;
       const params = new URLSearchParams();
       if (filters.status) params.append('status', filters.status);
       if (filters.paymentStatus) params.append('paymentStatus', filters.paymentStatus);
@@ -721,7 +722,7 @@ const UserOrdersAndPayments = () => {
                              <span className="label">Payment Screenshot:</span>
                              <span className="value">
                                <a 
-                                 href={`http://localhost:5000/payment_screenshots/${selectedOrder.paymentRounds.firstPayment.paymentDetails.paymentScreenshot}`}
+                                 href={`${API_ENDPOINTS.BASE_URL}/payment_screenshots/${selectedOrder.paymentRounds.firstPayment.paymentDetails.paymentScreenshot}`}
                                  target="_blank"
                                  rel="noopener noreferrer"
                                  className="screenshot-link"
@@ -794,7 +795,7 @@ const UserOrdersAndPayments = () => {
                              <span className="label">Payment Screenshot:</span>
                              <span className="value">
                                <a 
-                                 href={`http://localhost:5000/payment_screenshots/${selectedOrder.paymentRounds.secondPayment.paymentDetails.paymentScreenshot}`}
+                                 href={`${API_ENDPOINTS.BASE_URL}/payment_screenshots/${selectedOrder.paymentRounds.secondPayment.paymentDetails.paymentScreenshot}`}
                                  target="_blank"
                                  rel="noopener noreferrer"
                                  className="screenshot-link"
@@ -853,7 +854,7 @@ const UserOrdersAndPayments = () => {
                         <span className="label">Payment Screenshot:</span>
                         <span className="value">
                           <a 
-                            href={`http://localhost:5000/payment_screenshots/${selectedOrder.payment.paymentScreenshot}`}
+                            href={`${API_ENDPOINTS.BASE_URL}/payment_screenshots/${selectedOrder.payment.paymentScreenshot}`}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="screenshot-link"

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { API_ENDPOINTS } from '../config/api';
 import './AdminPremiumOrders.css';
 
 const AdminPremiumOrders = () => {
@@ -46,7 +47,7 @@ const AdminPremiumOrders = () => {
       const orderIds = orders.map(order => order._id);
       
       // Fetch notifications for all orders
-      const response = await fetch(`http://localhost:5000/api/notifications/orders`, {
+      const response = await fetch(`API_ENDPOINTS.NOTIFICATIONS/orders`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -86,7 +87,7 @@ const AdminPremiumOrders = () => {
       
       // Mark all notifications for this order as read
       for (const notification of notifications) {
-        await fetch(`http://localhost:5000/api/notifications/read/${notification._id}`, {
+        await fetch(`API_ENDPOINTS.NOTIFICATIONS/read/${notification._id}`, {
           method: 'PUT',
           headers: {
             'Authorization': `Bearer ${token}`
@@ -114,7 +115,7 @@ const AdminPremiumOrders = () => {
         return;
       }
 
-      let url = 'http://localhost:5000/api/premium-orders';
+      let url = 'API_ENDPOINTS.PREMIUM_ORDERS';
       const params = new URLSearchParams();
       if (filters.status) params.append('status', filters.status);
       if (filters.overallPaymentStatus) params.append('overallPaymentStatus', filters.overallPaymentStatus);
@@ -144,7 +145,7 @@ const AdminPremiumOrders = () => {
   const handleStatusUpdate = async (orderId, newStatus) => {
     try {
       const token = localStorage.getItem('adminToken');
-      const response = await fetch(`http://localhost:5000/api/premium-orders/${orderId}`, {
+      const response = await fetch(`API_ENDPOINTS.PREMIUM_ORDERS/${orderId}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -187,7 +188,7 @@ const AdminPremiumOrders = () => {
         notes = rejectionReason.trim() || `Payment rejected by admin`;
       }
 
-      const response = await fetch(`http://localhost:5000/api/premium-orders/verify/${orderId}/${round}`, {
+      const response = await fetch(`API_ENDPOINTS.PREMIUM_ORDERS/verify/${orderId}/${round}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -213,7 +214,7 @@ const AdminPremiumOrders = () => {
   const handleLegacyPaymentStatusUpdate = async (orderId, newPaymentStatus) => {
     try {
       const token = localStorage.getItem('adminToken');
-      const response = await fetch(`http://localhost:5000/api/premium-orders/${orderId}`, {
+      const response = await fetch(`API_ENDPOINTS.PREMIUM_ORDERS/${orderId}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -238,7 +239,7 @@ const AdminPremiumOrders = () => {
   const handleTrackingUpdate = async (orderId, trackingNumber) => {
     try {
       const token = localStorage.getItem('adminToken');
-      const response = await fetch(`http://localhost:5000/api/premium-orders/${orderId}`, {
+      const response = await fetch(`API_ENDPOINTS.PREMIUM_ORDERS/${orderId}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -273,7 +274,7 @@ const AdminPremiumOrders = () => {
       }
 
       console.log('Deleting premium order:', orderId);
-      const response = await fetch(`http://localhost:5000/api/premium-orders/${orderId}`, {
+      const response = await fetch(`API_ENDPOINTS.PREMIUM_ORDERS/${orderId}`, {
         method: 'DELETE',
         headers: {
           'Authorization': `Bearer ${token}`
@@ -309,7 +310,7 @@ const AdminPremiumOrders = () => {
       }
 
       console.log('Bulk deleting premium orders with status:', statusFilter);
-      const response = await fetch(`http://localhost:5000/api/premium-orders/bulk-delete`, {
+      const response = await fetch(`API_ENDPOINTS.PREMIUM_ORDERS/bulk-delete`, {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',
@@ -920,7 +921,7 @@ const AdminPremiumOrders = () => {
                             <span className="label">Payment Screenshot:</span>
                             <div className="value">
                               <a 
-                                href={`http://localhost:5000/premium-payments/${selectedOrder.paymentRounds?.firstPayment?.paymentScreenshot || selectedOrder.paymentScreenshot}`}
+                                href={`${API_ENDPOINTS.BASE_URL}/premium-payments/${selectedOrder.paymentRounds?.firstPayment?.paymentScreenshot || selectedOrder.paymentScreenshot}`}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="screenshot-link"
@@ -989,7 +990,7 @@ const AdminPremiumOrders = () => {
                               <span className="label">Payment Screenshot:</span>
                               <div className="value">
                                 <a 
-                                  href={`http://localhost:5000/premium-payments/${selectedOrder.paymentRounds.firstPayment.paymentScreenshot}`}
+                                  href={`${API_ENDPOINTS.BASE_URL}/premium-payments/${selectedOrder.paymentRounds.firstPayment.paymentScreenshot}`}
                                   target="_blank"
                                   rel="noopener noreferrer"
                                   className="screenshot-link"
@@ -1055,7 +1056,7 @@ const AdminPremiumOrders = () => {
                               <span className="label">Payment Screenshot:</span>
                               <div className="value">
                                 <a 
-                                  href={`http://localhost:5000/premium-payments/${selectedOrder.paymentRounds.secondPayment.paymentScreenshot}`}
+                                  href={`${API_ENDPOINTS.BASE_URL}/premium-payments/${selectedOrder.paymentRounds.secondPayment.paymentScreenshot}`}
                                   target="_blank"
                                   rel="noopener noreferrer"
                                   className="screenshot-link"
@@ -1107,7 +1108,7 @@ const AdminPremiumOrders = () => {
                           <span className="label">Payment Screenshot:</span>
                           <div className="value">
                             <a 
-                              href={`http://localhost:5000/premium-payments/${selectedOrder.paymentScreenshot}`}
+                              href={`${API_ENDPOINTS.BASE_URL}/premium-payments/${selectedOrder.paymentScreenshot}`}
                               target="_blank"
                               rel="noopener noreferrer"
                               className="screenshot-link"

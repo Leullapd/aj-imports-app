@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import { API_ENDPOINTS } from '../config/api';
 import './PremiumCampaigns.css';
 
 const PremiumCampaigns = () => {
@@ -42,7 +43,7 @@ const PremiumCampaigns = () => {
         params.append('category', selectedCategory);
       }
 
-      const response = await fetch(`http://localhost:5000/api/premium-campaigns?${params}`);
+      const response = await fetch(`API_ENDPOINTS.PREMIUM_CAMPAIGNS?${params}`);
       const data = await response.json();
 
       if (response.ok) {
@@ -164,7 +165,7 @@ const PremiumCampaigns = () => {
                 <div key={campaign._id} className="premium-campaign-card">
                   <div className="campaign-image">
                     <img 
-                      src={`http://localhost:5000/${campaign.image}`} 
+                      src={`${API_ENDPOINTS.BASE_URL}/${campaign.image}`} 
                       alt={campaign.title}
                       onError={(e) => {
                         e.target.src = '/placeholder-image.jpg';

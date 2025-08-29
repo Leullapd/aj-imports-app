@@ -2,17 +2,11 @@
 // This file centralizes all API endpoints
 
 const API_CONFIG = {
-  // Development URL (localhost)
-  DEVELOPMENT: 'http://localhost:5000',
-  
-  // Production URL (replace with your actual backend URL)
-  PRODUCTION: 'https://your-backend-url.railway.app', // Replace this!
-  
-  // Auto-detect environment
+  // Get base URL from environment variable or fallback to localhost
   get BASE_URL() {
-    return process.env.NODE_ENV === 'production' 
-      ? this.PRODUCTION 
-      : this.DEVELOPMENT;
+    return process.env.REACT_APP_API_BASE_URL || 
+           process.env.AJIMPORT_URL || 
+           'http://localhost:5000';
   }
 };
 

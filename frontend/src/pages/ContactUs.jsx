@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { API_ENDPOINTS } from '../config/api';
 import './ContactUs.css';
 
 const ContactUs = () => {
@@ -13,7 +14,7 @@ const ContactUs = () => {
 
   const fetchContactUs = async () => {
     try {
-      const response = await fetch('http://localhost:5000/api/contact-us/public');
+      const response = await fetch('API_ENDPOINTS.CONTACT_US/public');
       if (response.ok) {
         const data = await response.json();
         setContent(data.content);

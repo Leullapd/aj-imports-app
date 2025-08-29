@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import { API_ENDPOINTS } from '../config/api';
 import './PremiumOrder.css';
 
 const PremiumOrder = () => {
@@ -49,7 +50,7 @@ const PremiumOrder = () => {
   const fetchCampaign = async () => {
     try {
       setLoading(true);
-      const response = await fetch(`http://localhost:5000/api/premium-campaigns/${id}`);
+      const response = await fetch(`API_ENDPOINTS.PREMIUM_CAMPAIGNS/${id}`);
       const data = await response.json();
 
       if (response.ok) {
@@ -66,7 +67,7 @@ const PremiumOrder = () => {
 
   const fetchPaymentMethods = async () => {
     try {
-      const response = await fetch('http://localhost:5000/api/payment-methods');
+      const response = await fetch('API_ENDPOINTS.PAYMENT_METHODS');
       const data = await response.json();
 
       if (response.ok) {
@@ -99,7 +100,7 @@ const PremiumOrder = () => {
 
   const validateTransactionId = async (transactionId) => {
     try {
-      const response = await fetch(`http://localhost:5000/api/premium-orders/check-transaction-id?transactionId=${encodeURIComponent(transactionId)}`, {
+      const response = await fetch(`API_ENDPOINTS.PREMIUM_ORDERS/check-transaction-id?transactionId=${encodeURIComponent(transactionId)}`, {
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('token')}`
         }
@@ -173,7 +174,7 @@ const PremiumOrder = () => {
       formDataToSend.append('userNotes', formData.userNotes);
       formDataToSend.append('paymentScreenshot', formData.paymentScreenshot);
 
-      const response = await fetch('http://localhost:5000/api/premium-orders', {
+      const response = await fetch('API_ENDPOINTS.PREMIUM_ORDERS', {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`
@@ -253,7 +254,7 @@ const PremiumOrder = () => {
             <div className="campaign-card">
               <div className="campaign-image">
                 <img 
-                  src={`http://localhost:5000/${campaign.image}`} 
+                  src={`${API_ENDPOINTS.BASE_URL}/${campaign.image}`} 
                   alt={campaign.title}
                   onError={(e) => {
                     e.target.src = '/placeholder-image.jpg';

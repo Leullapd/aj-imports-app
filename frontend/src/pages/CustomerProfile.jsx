@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import { API_ENDPOINTS } from '../config/api';
 import './Auth.css';
 
 const CustomerProfile = () => {
@@ -28,7 +29,7 @@ const CustomerProfile = () => {
         return;
       }
 
-      const response = await fetch('http://localhost:5000/api/users/profile', {
+      const response = await fetch('API_ENDPOINTS.USERS/profile', {
         headers: {
           'Authorization': `Bearer ${token}`
         }
@@ -82,7 +83,7 @@ const CustomerProfile = () => {
         updateData.password = formData.password;
       }
 
-      const response = await fetch('http://localhost:5000/api/users/profile', {
+      const response = await fetch('API_ENDPOINTS.USERS/profile', {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -164,7 +165,7 @@ const CustomerProfile = () => {
               <div className="info-value">
                 {user.idImage ? (
                   <img 
-                    src={`http://localhost:5000/${user.idImage}`} 
+                    src={`${API_ENDPOINTS.BASE_URL}/${user.idImage}`} 
                     alt="ID" 
                     className="id-image"
                     style={{ maxWidth: '200px', maxHeight: '150px', border: '1px solid #ddd', borderRadius: '4px' }}

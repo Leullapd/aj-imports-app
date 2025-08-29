@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { API_ENDPOINTS } from '../config/api';
 import './Admin.css';
 
 const AdminMessages = () => {
@@ -23,7 +24,7 @@ const AdminMessages = () => {
   const fetchMessages = async () => {
     setRefreshing(true);
     try {
-      const response = await fetch('http://localhost:5000/api/messages');
+      const response = await fetch('API_ENDPOINTS.MESSAGES');
       const data = await response.json();
       setMessages(data.reverse()); // Show newest first
     } catch (error) {
@@ -43,7 +44,7 @@ const AdminMessages = () => {
         return;
       }
 
-      const response = await fetch(`http://localhost:5000/api/messages/${messageId}`, {
+      const response = await fetch(`API_ENDPOINTS.MESSAGES/${messageId}`, {
         method: 'DELETE',
         headers: {
           'Authorization': `Bearer ${token}`
@@ -75,7 +76,7 @@ const AdminMessages = () => {
         return;
       }
 
-      const response = await fetch('http://localhost:5000/api/messages/bulk-delete', {
+      const response = await fetch('API_ENDPOINTS.MESSAGES/bulk-delete', {
         method: 'DELETE',
         headers: {
           'Authorization': `Bearer ${token}`
@@ -101,7 +102,7 @@ const AdminMessages = () => {
 
     setSending(true);
     try {
-      const response = await fetch('http://localhost:5000/api/messages', {
+      const response = await fetch('API_ENDPOINTS.MESSAGES', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -129,7 +130,7 @@ const AdminMessages = () => {
 
     setSending(true);
     try {
-      const response = await fetch('http://localhost:5000/api/messages', {
+      const response = await fetch('API_ENDPOINTS.MESSAGES', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

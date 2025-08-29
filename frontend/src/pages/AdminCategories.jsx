@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { API_ENDPOINTS } from '../config/api';
 import './Admin.css';
 
 const AdminCategories = () => {
@@ -48,7 +49,7 @@ const AdminCategories = () => {
     try {
       setRefreshing(true);
       const adminToken = localStorage.getItem('adminToken');
-      const response = await fetch('http://localhost:5000/api/categories/admin', {
+      const response = await fetch('API_ENDPOINTS.CATEGORIES/admin', {
         headers: {
           'Authorization': `Bearer ${adminToken}`
         }
@@ -77,8 +78,8 @@ const AdminCategories = () => {
     try {
       const adminToken = localStorage.getItem('adminToken');
       const url = editingCategory 
-        ? `http://localhost:5000/api/categories/${editingCategory._id}`
-        : 'http://localhost:5000/api/categories';
+        ? `API_ENDPOINTS.CATEGORIES/${editingCategory._id}`
+        : 'API_ENDPOINTS.CATEGORIES';
       
       const method = editingCategory ? 'PUT' : 'POST';
       
@@ -135,7 +136,7 @@ const AdminCategories = () => {
     if (window.confirm('Are you sure you want to delete this category? This action cannot be undone.')) {
       try {
         const adminToken = localStorage.getItem('adminToken');
-        const response = await fetch(`http://localhost:5000/api/categories/${categoryId}`, {
+        const response = await fetch(`API_ENDPOINTS.CATEGORIES/${categoryId}`, {
           method: 'DELETE',
           headers: {
             'Authorization': `Bearer ${adminToken}`
@@ -158,7 +159,7 @@ const AdminCategories = () => {
   const handleToggleActive = async (categoryId, currentActive) => {
     try {
       const adminToken = localStorage.getItem('adminToken');
-      const response = await fetch(`http://localhost:5000/api/categories/${categoryId}/toggle`, {
+      const response = await fetch(`API_ENDPOINTS.CATEGORIES/${categoryId}/toggle`, {
         method: 'PATCH',
         headers: {
           'Authorization': `Bearer ${adminToken}`

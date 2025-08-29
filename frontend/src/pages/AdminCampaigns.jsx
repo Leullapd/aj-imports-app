@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import SearchBar from '../components/SearchBar';
+import { API_ENDPOINTS } from '../config/api';
 import './Admin.css';
 
 const AdminCampaigns = () => {
@@ -36,7 +37,7 @@ const AdminCampaigns = () => {
   const fetchCampaigns = async () => {
     try {
       setRefreshing(true);
-      const response = await fetch('http://localhost:5000/api/campaigns');
+      const response = await fetch('API_ENDPOINTS.CAMPAIGNS');
       const data = await response.json();
       setCampaigns(data);
       setFilteredCampaigns(data);
@@ -51,7 +52,7 @@ const AdminCampaigns = () => {
 
   const fetchProducts = async () => {
     try {
-      const response = await fetch('http://localhost:5000/api/products');
+      const response = await fetch('API_ENDPOINTS.PRODUCTS');
       const data = await response.json();
       setProducts(data);
     } catch (error) {
@@ -79,8 +80,8 @@ const AdminCampaigns = () => {
     
     try {
       const url = editingCampaign 
-        ? `http://localhost:5000/api/campaigns/${editingCampaign._id}`
-        : 'http://localhost:5000/api/campaigns';
+        ? `API_ENDPOINTS.CAMPAIGNS/${editingCampaign._id}`
+        : 'API_ENDPOINTS.CAMPAIGNS';
       
       const method = editingCampaign ? 'PUT' : 'POST';
       
@@ -121,7 +122,7 @@ const AdminCampaigns = () => {
   const handleDelete = async (campaignId) => {
     if (window.confirm('Are you sure you want to delete this campaign?')) {
       try {
-        const response = await fetch(`http://localhost:5000/api/campaigns/${campaignId}`, {
+        const response = await fetch(`API_ENDPOINTS.CAMPAIGNS/${campaignId}`, {
           method: 'DELETE',
         });
 

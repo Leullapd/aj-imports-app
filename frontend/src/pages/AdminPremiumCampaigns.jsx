@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Footer from '../components/Footer';
+import { API_ENDPOINTS } from '../config/api';
 import './AdminPremiumCampaigns.css';
 import './Admin.css';
 
@@ -62,7 +63,7 @@ const AdminPremiumCampaigns = () => {
     try {
       setLoading(true);
       const adminToken = localStorage.getItem('adminToken');
-      const response = await fetch('http://localhost:5000/api/premium-campaigns', {
+      const response = await fetch('API_ENDPOINTS.PREMIUM_CAMPAIGNS', {
         headers: {
           'Authorization': `Bearer ${adminToken}`
         }
@@ -111,8 +112,8 @@ const AdminPremiumCampaigns = () => {
       });
 
       const url = editingCampaign 
-        ? `http://localhost:5000/api/premium-campaigns/${editingCampaign._id}`
-        : 'http://localhost:5000/api/premium-campaigns';
+        ? `API_ENDPOINTS.PREMIUM_CAMPAIGNS/${editingCampaign._id}`
+        : 'API_ENDPOINTS.PREMIUM_CAMPAIGNS';
 
       const response = await fetch(url, {
         method: editingCampaign ? 'PUT' : 'POST',
@@ -167,7 +168,7 @@ const AdminPremiumCampaigns = () => {
 
     try {
       const adminToken = localStorage.getItem('adminToken');
-      const response = await fetch(`http://localhost:5000/api/premium-campaigns/${campaignId}`, {
+      const response = await fetch(`API_ENDPOINTS.PREMIUM_CAMPAIGNS/${campaignId}`, {
         method: 'DELETE',
         headers: {
           'Authorization': `Bearer ${adminToken}`
@@ -530,7 +531,7 @@ const AdminPremiumCampaigns = () => {
             <div key={campaign._id} className="premium-campaign-card">
               <div className="campaign-image">
                 <img 
-                  src={`http://localhost:5000/${campaign.image}`} 
+                  src={`${API_ENDPOINTS.BASE_URL}/${campaign.image}`} 
                   alt={campaign.title}
                   onError={(e) => {
                     e.target.src = '/placeholder-image.jpg';

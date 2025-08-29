@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { API_ENDPOINTS } from '../config/api';
 import './Admin.css';
 
 const AdminLogin = () => {
@@ -24,7 +25,7 @@ const AdminLogin = () => {
     setError('');
 
     try {
-      const response = await fetch('http://localhost:5000/api/auth/admin/login', {
+      const response = await fetch(API_ENDPOINTS.ADMIN_LOGIN, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
