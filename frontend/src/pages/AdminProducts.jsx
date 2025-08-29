@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import SearchBar from '../components/SearchBar';
-import { API_ENDPOINTS } from '../config/api';
 import './Admin.css';
 
 const AdminProducts = () => {
@@ -13,9 +12,7 @@ const AdminProducts = () => {
   const [editingProduct, setEditingProduct] = useState(null);
   const [profileDropdownOpen, setProfileDropdownOpen] = useState(false);
   const [refreshing, setRefreshing] = useState(false);
-  const navigate = useNavigate();
-
-  const [formData, setFormData] = useState({
+    const [formData, setFormData] = useState({
     title: '',
     category: '',
     image: '',

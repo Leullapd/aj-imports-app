@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Footer from '../components/Footer';
-import { API_ENDPOINTS } from '../config/api';
 import './AdminPrivateMessages.css';
 import './Admin.css';
 
@@ -13,9 +12,7 @@ const AdminPrivateMessages = () => {
   const [loading, setLoading] = useState(true);
   const [profileDropdownOpen, setProfileDropdownOpen] = useState(false);
   const messagesEndRef = useRef(null);
-  const navigate = useNavigate();
-
-  // Check if admin token exists
+    // Check if admin token exists
   useEffect(() => {
     const adminToken = localStorage.getItem('adminToken');
     if (!adminToken) {

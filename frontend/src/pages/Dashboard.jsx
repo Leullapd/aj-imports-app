@@ -2,13 +2,10 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import { API_ENDPOINTS } from '../config/api';
 import './Dashboard.css';
 
 const Dashboard = () => {
-  const navigate = useNavigate();
-  const [user, setUser] = useState(null);
-  const [stats, setStats] = useState({
+      const [stats, setStats] = useState({
     totalOrders: 0,
     pendingPayments: 0,
     confirmedOrders: 0,

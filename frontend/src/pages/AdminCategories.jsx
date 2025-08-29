@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { API_ENDPOINTS } from '../config/api';
 import './Admin.css';
 
 const AdminCategories = () => {
@@ -10,9 +9,7 @@ const AdminCategories = () => {
   const [editingCategory, setEditingCategory] = useState(null);
   const [profileDropdownOpen, setProfileDropdownOpen] = useState(false);
   const [refreshing, setRefreshing] = useState(false);
-  const navigate = useNavigate();
-
-  const [formData, setFormData] = useState({
+    const [formData, setFormData] = useState({
     name: '',
     icon: '📦',
     description: '',

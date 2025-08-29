@@ -7,12 +7,10 @@ import Footer from '../components/Footer';
 import OrderModal from '../components/OrderModal';
 import ProductDetailModal from '../components/ProductDetailModal';
 
-import { API_ENDPOINTS } from '../config/api';
 import './Home.css';
 
 const Home = () => {
-  const navigate = useNavigate();
-  const [products, setProducts] = useState([]);
+    const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [orderModalOpen, setOrderModalOpen] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState(null);

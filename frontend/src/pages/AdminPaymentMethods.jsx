@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { API_ENDPOINTS } from '../config/api';
 import './Admin.css';
 
 const AdminPaymentMethods = () => {
@@ -18,9 +17,7 @@ const AdminPaymentMethods = () => {
     accountInfo: '',
     isActive: true
   });
-  const navigate = useNavigate();
-
-  useEffect(() => {
+    useEffect(() => {
     const adminToken = localStorage.getItem('adminToken');
     if (!adminToken) {
       navigate('/admin/login');

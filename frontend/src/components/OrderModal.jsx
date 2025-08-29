@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { API_ENDPOINTS } from '../config/api';
 import './OrderModal.css';
 
 const OrderModal = ({ product, isOpen, onClose, onOrder }) => {
@@ -9,9 +8,7 @@ const OrderModal = ({ product, isOpen, onClose, onOrder }) => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
-  const navigate = useNavigate();
-
-  if (!isOpen || !product) return null;
+    if (!isOpen || !product) return null;
 
   const handleOrder = async (e) => {
     e.preventDefault();

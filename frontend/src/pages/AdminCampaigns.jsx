@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import SearchBar from '../components/SearchBar';
-import { API_ENDPOINTS } from '../config/api';
 import './Admin.css';
 
 const AdminCampaigns = () => {
@@ -12,9 +11,7 @@ const AdminCampaigns = () => {
   const [showAddForm, setShowAddForm] = useState(false);
   const [editingCampaign, setEditingCampaign] = useState(null);
   const [refreshing, setRefreshing] = useState(false);
-  const navigate = useNavigate();
-
-  const [formData, setFormData] = useState({
+    const [formData, setFormData] = useState({
     title: '',
     description: '',
     products: [],

@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { API_ENDPOINTS } from '../config/api';
 import './PremiumPayment.css';
 
 const PremiumPayment = () => {
   const { orderId, round = 'firstPayment' } = useParams();
-  const navigate = useNavigate();
-  const [order, setOrder] = useState(null);
+    const [order, setOrder] = useState(null);
   const [loading, setLoading] = useState(true);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState('');

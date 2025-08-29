@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { API_ENDPOINTS } from '../config/api';
 import './Admin.css';
 
 const AdminMessages = () => {
@@ -9,9 +8,7 @@ const AdminMessages = () => {
   const [newMessage, setNewMessage] = useState('');
   const [sending, setSending] = useState(false);
   const [refreshing, setRefreshing] = useState(false);
-  const navigate = useNavigate();
-
-  useEffect(() => {
+    useEffect(() => {
     // Check if admin is logged in
     const adminToken = localStorage.getItem('adminToken');
     if (!adminToken) {

@@ -5,13 +5,11 @@ import Footer from '../components/Footer';
 import ProductCard from '../components/ProductCard';
 import OrderModal from '../components/OrderModal';
 import ProductDetailModal from '../components/ProductDetailModal';
-import { API_ENDPOINTS } from '../config/api';
 import './Campaigns.css';
 
 const Campaigns = () => {
   const [searchParams, setSearchParams] = useSearchParams();
-  const navigate = useNavigate();
-  const [products, setProducts] = useState([]);
+    const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [orderModalOpen, setOrderModalOpen] = useState(false);

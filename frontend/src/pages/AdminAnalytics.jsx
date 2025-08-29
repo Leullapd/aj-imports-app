@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { API_ENDPOINTS } from '../config/api';
 import './AdminAnalytics.css';
 
 const AdminAnalytics = () => {
@@ -8,9 +7,7 @@ const AdminAnalytics = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
   const [refreshing, setRefreshing] = useState(false);
-  const navigate = useNavigate();
-
-  useEffect(() => {
+    useEffect(() => {
     fetchAnalytics();
   }, []);
 

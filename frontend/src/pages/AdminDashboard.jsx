@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { API_ENDPOINTS } from '../config/api';
 import './Admin.css';
 
 const AdminDashboard = () => {
@@ -26,9 +25,7 @@ const AdminDashboard = () => {
   const [showNotifications, setShowNotifications] = useState(false);
   const [unreadNotificationCount, setUnreadNotificationCount] = useState(0);
   const [refreshing, setRefreshing] = useState(false);
-  const navigate = useNavigate();
-
-  useEffect(() => {
+    useEffect(() => {
     // Check if admin is logged in
     const adminToken = localStorage.getItem('adminToken');
     if (!adminToken) {

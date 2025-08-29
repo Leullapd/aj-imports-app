@@ -1,16 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import TinyMCEEditor from '../components/TinyMCEEditor';
-import { API_ENDPOINTS } from '../config/api';
 import './AdminPrivacyPolicy.css';
 
 const AdminPrivacyPolicy = () => {
   const [content, setContent] = useState('');
   const [isLoading, setIsLoading] = useState(true);
   const [saveMessage, setSaveMessage] = useState('');
-  const navigate = useNavigate();
-
-  useEffect(() => {
+    useEffect(() => {
     fetchPrivacyPolicy();
   }, []);
 
