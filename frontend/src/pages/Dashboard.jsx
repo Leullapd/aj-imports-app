@@ -6,8 +6,8 @@ import './Dashboard.css';
 
 const Dashboard = () => {
   const navigate = useNavigate();
-
-      const [stats, setStats] = useState({
+  const [user, setUser] = useState(null);
+  const [stats, setStats] = useState({
     totalOrders: 0,
     pendingPayments: 0,
     confirmedOrders: 0,

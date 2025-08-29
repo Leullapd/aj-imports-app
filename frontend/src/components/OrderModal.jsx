@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import './OrderModal.css';
 
 const OrderModal = ({ product, isOpen, onClose, onOrder }) => {
+  const navigate = useNavigate();
   const [quantity, setQuantity] = useState(1);
   const [paymentPlan, setPaymentPlan] = useState('full');
   const [loading, setLoading] = useState(false);
