@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: aj-imports-backend
+    env: node
+    plan: free
+    buildCommand: cd backend && npm install
+    startCommand: cd backend && npm start
+    envVars:
+      - key: MONGO_URI
+        value: mongodb+srv://ajimports-admin:ajpass@1221admin@aj-imports-cluster.ccc81w9.mongodb.net/ajimports?retryWrites=true&w=majority
+      - key: JWT_SECRET
+        value: 8e48c62b41076483d1fecb02c5c6fb1dde64edf5b973a9cc4d0b5db0c02d4d1089f10be9e123452436cf210c70094888eec0882beb7724ee46f4c19fd92d1183
+      - key: PORT
+        value: 5000
+      - key: NODE_ENV
+        value: production
