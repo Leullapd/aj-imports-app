@@ -6,7 +6,7 @@ const API_CONFIG = {
   get BASE_URL() {
     return process.env.REACT_APP_API_BASE_URL || 
            process.env.AJIMPORT_URL || 
-           'http://localhost:5000';
+           'https://aj-imports-back.onrender.com';
   }
 };
 
