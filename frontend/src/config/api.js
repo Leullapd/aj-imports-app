@@ -4,19 +4,17 @@
 const API_CONFIG = {
   // Get base URL from environment variable or fallback to production backend
   get BASE_URL() {
-    const envUrl = process.env.REACT_APP_API_BASE_URL || process.env.AJIMPORT_URL;
-    const fallbackUrl = 'https://aj-imports-back.onrender.com';
+    // Temporarily hardcode the backend URL for Netlify deployment
+    const backendUrl = 'https://aj-imports-back.onrender.com';
     
     // Log for debugging
     console.log('API Config Debug:', {
       'REACT_APP_API_BASE_URL': process.env.REACT_APP_API_BASE_URL,
       'AJIMPORT_URL': process.env.AJIMPORT_URL,
-      'envUrl': envUrl,
-      'fallbackUrl': fallbackUrl,
-      'finalUrl': envUrl || fallbackUrl
+      'backendUrl': backendUrl
     });
     
-    return envUrl || fallbackUrl;
+    return backendUrl;
   }
 };
 
