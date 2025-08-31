@@ -23,7 +23,7 @@ export const API_ENDPOINTS = {
   // Auth
   LOGIN: `${API_CONFIG.BASE_URL}/api/auth/login`,
   REGISTER: `${API_CONFIG.BASE_URL}/api/auth/register`,
-  ADMIN_LOGIN: `${API_CONFIG.BASE_URL}/api/auth/admin-login`,
+  ADMIN_LOGIN: `${API_CONFIG.BASE_URL}/api/auth/admin/login`,
   
   // Products
   PRODUCTS: `${API_CONFIG.BASE_URL}/api/products`,
