@@ -6,7 +6,7 @@ import ProductCard from '../components/ProductCard';
 import Footer from '../components/Footer';
 import OrderModal from '../components/OrderModal';
 import ProductDetailModal from '../components/ProductDetailModal';
-
+import { API_ENDPOINTS } from '../config/api';
 import './Home.css';
 
 const Home = () => {
