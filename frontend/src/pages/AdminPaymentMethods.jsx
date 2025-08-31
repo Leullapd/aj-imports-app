@@ -66,7 +66,7 @@ const AdminPaymentMethods = () => {
       const adminToken = localStorage.getItem('adminToken');
       const url = editingMethod 
         ? `API_ENDPOINTS.PAYMENT_METHODS/${editingMethod._id}`
-        : 'API_ENDPOINTS.PAYMENT_METHODS';
+        : API_ENDPOINTS.PAYMENT_METHODS;
       
       const method = editingMethod ? 'PUT' : 'POST';
       

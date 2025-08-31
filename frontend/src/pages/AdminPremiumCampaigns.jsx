@@ -63,7 +63,7 @@ const AdminPremiumCampaigns = () => {
     try {
       setLoading(true);
       const adminToken = localStorage.getItem('adminToken');
-      const response = await fetch('API_ENDPOINTS.PREMIUM_CAMPAIGNS', {
+      const response = await fetch(API_ENDPOINTS.PREMIUM_CAMPAIGNS, {
         headers: {
           'Authorization': `Bearer ${adminToken}`
         }
@@ -113,7 +113,7 @@ const AdminPremiumCampaigns = () => {
 
       const url = editingCampaign 
         ? `API_ENDPOINTS.PREMIUM_CAMPAIGNS/${editingCampaign._id}`
-        : 'API_ENDPOINTS.PREMIUM_CAMPAIGNS';
+        : API_ENDPOINTS.PREMIUM_CAMPAIGNS;
 
       const response = await fetch(url, {
         method: editingCampaign ? 'PUT' : 'POST',

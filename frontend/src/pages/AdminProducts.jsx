@@ -119,7 +119,7 @@ const AdminProducts = () => {
     try {
       const url = editingProduct 
         ? `API_ENDPOINTS.PRODUCTS/${editingProduct._id}`
-        : 'API_ENDPOINTS.PRODUCTS';
+        : API_ENDPOINTS.PRODUCTS;
       
       const method = editingProduct ? 'PUT' : 'POST';
       

@@ -27,7 +27,7 @@ const AdminUsers = () => {
   const fetchUsers = async () => {
     try {
       setRefreshing(true);
-      const response = await fetch('API_ENDPOINTS.USERS');
+      const response = await fetch(API_ENDPOINTS.USERS);
       const data = await response.json();
       // Process users to add full image URLs
       const processedUsers = data.map(user => ({

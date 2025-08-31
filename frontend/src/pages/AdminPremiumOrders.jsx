@@ -115,7 +115,7 @@ const AdminPremiumOrders = () => {
         return;
       }
 
-      let url = 'API_ENDPOINTS.PREMIUM_ORDERS';
+      let url = API_ENDPOINTS.PREMIUM_ORDERS;
       const params = new URLSearchParams();
       if (filters.status) params.append('status', filters.status);
       if (filters.overallPaymentStatus) params.append('overallPaymentStatus', filters.overallPaymentStatus);

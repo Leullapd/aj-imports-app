@@ -23,7 +23,7 @@ const AdminMessages = () => {
   const fetchMessages = async () => {
     setRefreshing(true);
     try {
-      const response = await fetch('API_ENDPOINTS.MESSAGES');
+      const response = await fetch(API_ENDPOINTS.MESSAGES);
       const data = await response.json();
       setMessages(data.reverse()); // Show newest first
     } catch (error) {
@@ -101,7 +101,7 @@ const AdminMessages = () => {
 
     setSending(true);
     try {
-      const response = await fetch('API_ENDPOINTS.MESSAGES', {
+      const response = await fetch(API_ENDPOINTS.MESSAGES, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -129,7 +129,7 @@ const AdminMessages = () => {
 
     setSending(true);
     try {
-      const response = await fetch('API_ENDPOINTS.MESSAGES', {
+      const response = await fetch(API_ENDPOINTS.MESSAGES, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

@@ -36,7 +36,7 @@ const AdminCampaigns = () => {
   const fetchCampaigns = async () => {
     try {
       setRefreshing(true);
-      const response = await fetch('API_ENDPOINTS.CAMPAIGNS');
+      const response = await fetch(API_ENDPOINTS.CAMPAIGNS);
       const data = await response.json();
       setCampaigns(data);
       setFilteredCampaigns(data);
@@ -51,7 +51,7 @@ const AdminCampaigns = () => {
 
   const fetchProducts = async () => {
     try {
-      const response = await fetch('API_ENDPOINTS.PRODUCTS');
+      const response = await fetch(API_ENDPOINTS.PRODUCTS);
       const data = await response.json();
       setProducts(data);
     } catch (error) {
@@ -80,7 +80,7 @@ const AdminCampaigns = () => {
     try {
       const url = editingCampaign 
         ? `API_ENDPOINTS.CAMPAIGNS/${editingCampaign._id}`
-        : 'API_ENDPOINTS.CAMPAIGNS';
+        : API_ENDPOINTS.CAMPAIGNS;
       
       const method = editingCampaign ? 'PUT' : 'POST';
       

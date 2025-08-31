@@ -21,7 +21,7 @@ const AdminPrivacyPolicy = () => {
         return;
       }
 
-      const response = await fetch('API_ENDPOINTS.PRIVACY_POLICY', {
+      const response = await fetch(API_ENDPOINTS.PRIVACY_POLICY, {
         headers: {
           'Authorization': `Bearer ${token}`
         }
@@ -50,7 +50,7 @@ const AdminPrivacyPolicy = () => {
         return;
       }
 
-      const response = await fetch('API_ENDPOINTS.PRIVACY_POLICY', {
+      const response = await fetch(API_ENDPOINTS.PRIVACY_POLICY, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

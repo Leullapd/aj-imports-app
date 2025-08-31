@@ -115,7 +115,7 @@ const AdminOrdersAndPayments = () => {
         return;
       }
 
-      let url = 'API_ENDPOINTS.ORDERS';
+      let url = API_ENDPOINTS.ORDERS;
       const params = new URLSearchParams();
       if (filters.status) params.append('status', filters.status);
       if (filters.paymentStatus && filters.paymentStatus !== 'pending-second') {
