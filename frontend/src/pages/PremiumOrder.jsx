@@ -50,7 +50,7 @@ const PremiumOrder = () => {
   const fetchCampaign = async () => {
     try {
       setLoading(true);
-      const response = await fetch(`API_ENDPOINTS.PREMIUM_CAMPAIGNS/${id}`);
+      const response = await fetch(`${API_ENDPOINTS.PREMIUM_CAMPAIGNS}/${id}`);
       const data = await response.json();
 
       if (response.ok) {
@@ -67,7 +67,7 @@ const PremiumOrder = () => {
 
   const fetchPaymentMethods = async () => {
     try {
-      const response = await fetch('API_ENDPOINTS.PAYMENT_METHODS');
+      const response = await fetch(API_ENDPOINTS.PAYMENT_METHODS);
       const data = await response.json();
 
       if (response.ok) {
@@ -100,7 +100,7 @@ const PremiumOrder = () => {
 
   const validateTransactionId = async (transactionId) => {
     try {
-      const response = await fetch(`API_ENDPOINTS.PREMIUM_ORDERS/check-transaction-id?transactionId=${encodeURIComponent(transactionId)}`, {
+      const response = await fetch(`${API_ENDPOINTS.PREMIUM_ORDERS}/check-transaction-id?transactionId=${encodeURIComponent(transactionId)}`, {
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('token')}`
         }
@@ -174,7 +174,7 @@ const PremiumOrder = () => {
       formDataToSend.append('userNotes', formData.userNotes);
       formDataToSend.append('paymentScreenshot', formData.paymentScreenshot);
 
-      const response = await fetch('API_ENDPOINTS.PREMIUM_ORDERS', {
+      const response = await fetch(API_ENDPOINTS.PREMIUM_ORDERS, {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`

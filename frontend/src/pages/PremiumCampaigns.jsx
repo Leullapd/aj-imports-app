@@ -43,7 +43,7 @@ const PremiumCampaigns = () => {
         params.append('category', selectedCategory);
       }
 
-      const response = await fetch(`API_ENDPOINTS.PREMIUM_CAMPAIGNS?${params}`);
+      const response = await fetch(`${API_ENDPOINTS.PREMIUM_CAMPAIGNS}?${params}`);
       const data = await response.json();
 
       if (response.ok) {
