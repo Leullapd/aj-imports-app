@@ -2,11 +2,21 @@
 // This file centralizes all API endpoints
 
 const API_CONFIG = {
-  // Get base URL from environment variable or fallback to localhost
+  // Get base URL from environment variable or fallback to production backend
   get BASE_URL() {
-    return process.env.REACT_APP_API_BASE_URL || 
-           process.env.AJIMPORT_URL || 
-           'https://aj-imports-back.onrender.com';
+    const envUrl = process.env.REACT_APP_API_BASE_URL || process.env.AJIMPORT_URL;
+    const fallbackUrl = 'https://aj-imports-back.onrender.com';
+    
+    // Log for debugging
+    console.log('API Config Debug:', {
+      'REACT_APP_API_BASE_URL': process.env.REACT_APP_API_BASE_URL,
+      'AJIMPORT_URL': process.env.AJIMPORT_URL,
+      'envUrl': envUrl,
+      'fallbackUrl': fallbackUrl,
+      'finalUrl': envUrl || fallbackUrl
+    });
+    
+    return envUrl || fallbackUrl;
   }
 };
 
