@@ -73,6 +73,7 @@ function App() {
           <Route path="/premium-payment/:orderId/:round" element={<PremiumPayment />} />
           {/* Admin Routes */}
           <Route path="/admin/login" element={<AdminLogin />} />
+          <Route path="/admin-login" element={<AdminLogin />} />
           <Route path="/admin/dashboard" element={<AdminDashboard />} />
           <Route path="/admin/products" element={<AdminProducts />} />
           <Route path="/admin/campaigns" element={<AdminCampaigns />} />
