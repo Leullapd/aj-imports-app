@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { API_ENDPOINTS } from '../config/api';
 import './Admin.css';
 
 const AdminDashboard = () => {
@@ -86,23 +87,23 @@ const AdminDashboard = () => {
       if (!adminToken) return;
 
       // Fetch products count
-      const productsRes = await fetch('API_ENDPOINTS.PRODUCTS');
+      const productsRes = await fetch(API_ENDPOINTS.PRODUCTS);
       const products = await productsRes.json();
       
       // Fetch campaigns count
-      const campaignsRes = await fetch('API_ENDPOINTS.CAMPAIGNS');
+      const campaignsRes = await fetch(API_ENDPOINTS.CAMPAIGNS);
       const campaigns = await campaignsRes.json();
       
       // Fetch orders count
-      const ordersRes = await fetch('API_ENDPOINTS.ORDERS');
+      const ordersRes = await fetch(API_ENDPOINTS.ORDERS);
       const orders = await ordersRes.json();
 
       // Fetch users count
-      const usersRes = await fetch('API_ENDPOINTS.USERS');
+      const usersRes = await fetch(API_ENDPOINTS.USERS);
       const users = await usersRes.json();
 
       // Fetch payments count
-      const paymentsRes = await fetch('API_ENDPOINTS.PAYMENTS', {
+      const paymentsRes = await fetch(API_ENDPOINTS.PAYMENTS, {
         headers: {
           'Authorization': `Bearer ${adminToken}`
         }
@@ -118,7 +119,7 @@ const AdminDashboard = () => {
       }
 
       // Fetch private messages count
-      const privateMessagesRes = await fetch('API_ENDPOINTS.PRIVATE_MESSAGES/admin', {
+      const privateMessagesRes = await fetch(`${API_ENDPOINTS.PRIVATE_MESSAGES}/admin`, {
         headers: {
           'Authorization': `Bearer ${adminToken}`
         }
@@ -134,7 +135,7 @@ const AdminDashboard = () => {
       }
 
       // Fetch group messages count
-      const groupMessagesRes = await fetch('API_ENDPOINTS.MESSAGES');
+      const groupMessagesRes = await fetch(API_ENDPOINTS.MESSAGES);
       const groupMessages = await groupMessagesRes.json();
       let unreadMessages = 0;
       if (groupMessagesRes.ok) {
@@ -142,7 +143,7 @@ const AdminDashboard = () => {
       }
 
       // Fetch premium campaigns count
-      const premiumCampaignsRes = await fetch('API_ENDPOINTS.PREMIUM_CAMPAIGNS');
+      const premiumCampaignsRes = await fetch(API_ENDPOINTS.PREMIUM_CAMPAIGNS);
       let totalPremiumCampaigns = 0;
       if (premiumCampaignsRes.ok) {
         const premiumCampaignsData = await premiumCampaignsRes.json();
@@ -150,7 +151,7 @@ const AdminDashboard = () => {
       }
 
       // Fetch premium orders count and pending payments
-      const premiumOrdersRes = await fetch('API_ENDPOINTS.PREMIUM_ORDERS', {
+      const premiumOrdersRes = await fetch(API_ENDPOINTS.PREMIUM_ORDERS, {
         headers: {
           'Authorization': `Bearer ${adminToken}`
         }
@@ -197,7 +198,7 @@ const AdminDashboard = () => {
 
   const fetchMessages = async () => {
     try {
-      const response = await fetch('API_ENDPOINTS.MESSAGES');
+      const response = await fetch(API_ENDPOINTS.MESSAGES);
       const data = await response.json();
       // Get only the 5 most recent messages
       setMessages(data.slice(-5).reverse());
@@ -211,7 +212,7 @@ const AdminDashboard = () => {
       const adminToken = localStorage.getItem('adminToken');
       if (!adminToken) return;
 
-      const response = await fetch('API_ENDPOINTS.PRIVATE_MESSAGES/admin', {
+      const response = await fetch(`${API_ENDPOINTS.PRIVATE_MESSAGES}/admin`, {
         headers: {
           'Authorization': `Bearer ${adminToken}`
         }
@@ -229,7 +230,7 @@ const AdminDashboard = () => {
 
   const handleDeleteMessage = async (messageId) => {
     try {
-      const response = await fetch(`API_ENDPOINTS.MESSAGES/${messageId}`, {
+      const response = await fetch(`${API_ENDPOINTS.MESSAGES}/${messageId}`, {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',
@@ -252,7 +253,7 @@ const AdminDashboard = () => {
       const token = localStorage.getItem('adminToken');
       if (!token) return;
 
-      const response = await fetch('API_ENDPOINTS.NOTIFICATIONS/user', {
+      const response = await fetch(`${API_ENDPOINTS.NOTIFICATIONS}/user`, {
         headers: {
           'Authorization': `Bearer ${token}`
         }
@@ -273,7 +274,7 @@ const AdminDashboard = () => {
       const token = localStorage.getItem('adminToken');
       if (!token) return;
 
-      const response = await fetch('API_ENDPOINTS.NOTIFICATIONS/unread-count', {
+      const response = await fetch(`${API_ENDPOINTS.NOTIFICATIONS}/unread-count`, {
         headers: {
           'Authorization': `Bearer ${token}`
         }
@@ -303,7 +304,7 @@ const AdminDashboard = () => {
       const token = localStorage.getItem('adminToken');
       if (!token) return;
 
-      const response = await fetch(`API_ENDPOINTS.NOTIFICATIONS/read/${notificationId}`, {
+      const response = await fetch(`${API_ENDPOINTS.NOTIFICATIONS}/read/${notificationId}`, {
         method: 'PUT',
         headers: {
           'Authorization': `Bearer ${token}`
@@ -328,7 +329,7 @@ const AdminDashboard = () => {
       const token = localStorage.getItem('adminToken');
       if (!token) return;
 
-      const response = await fetch('API_ENDPOINTS.NOTIFICATIONS/read-all', {
+      const response = await fetch(`${API_ENDPOINTS.NOTIFICATIONS}/read-all`, {
         method: 'PUT',
         headers: {
           'Authorization': `Bearer ${token}`
@@ -351,7 +352,7 @@ const AdminDashboard = () => {
       const token = localStorage.getItem('adminToken');
       if (!token) return;
 
-      const response = await fetch(`API_ENDPOINTS.NOTIFICATIONS/${notificationId}`, {
+      const response = await fetch(`${API_ENDPOINTS.NOTIFICATIONS}/${notificationId}`, {
         method: 'DELETE',
         headers: {
           'Authorization': `Bearer ${token}`
