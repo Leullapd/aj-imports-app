@@ -63,7 +63,7 @@ const Register = () => {
       formDataToSend.append('password', formData.password);
       formDataToSend.append('idImage', formData.idImage);
 
-      const response = await fetch('API_ENDPOINTS.REGISTER', {
+      const response = await fetch(API_ENDPOINTS.REGISTER, {
         method: 'POST',
         body: formDataToSend,
       });

@@ -21,7 +21,7 @@ const Home = () => {
 
   useEffect(() => {
     // Fetch products from your backend API
-    fetch('API_ENDPOINTS.PRODUCTS')
+    fetch(API_ENDPOINTS.PRODUCTS)
       .then(res => res.json())
       .then(data => {
         setProducts(data);
@@ -63,7 +63,7 @@ const Home = () => {
 
   useEffect(() => {
     // Fetch categories from API
-    fetch('API_ENDPOINTS.CATEGORIES')
+    fetch(API_ENDPOINTS.CATEGORIES)
       .then(res => res.json())
       .then(data => {
         setCategories(data);
