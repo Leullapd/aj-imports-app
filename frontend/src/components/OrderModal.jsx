@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { API_ENDPOINTS } from '../config/api';
 import { useNavigate } from 'react-router-dom';
 import './OrderModal.css';
 
@@ -35,7 +36,7 @@ const OrderModal = ({ product, isOpen, onClose, onOrder }) => {
 
     try {
       // Create the order first
-      const orderResponse = await fetch('API_ENDPOINTS.ORDERS', {
+      const orderResponse = await fetch(API_ENDPOINTS.ORDERS, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

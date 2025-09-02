@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { API_ENDPOINTS } from '../config/api';
 
 const TestProfile = () => {
   const [phone, setPhone] = useState('');

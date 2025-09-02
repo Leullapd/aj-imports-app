@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { API_ENDPOINTS } from '../config/api';
 import { Link } from 'react-router-dom';
 import './TermsOfUse.css';
 

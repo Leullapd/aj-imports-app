@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { API_ENDPOINTS } from '../config/api';
 import { useParams, useNavigate } from 'react-router-dom';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
@@ -99,7 +100,7 @@ const Payment = () => {
   const fetchPaymentMethods = async () => {
     try {
       console.log('Fetching payment methods...');
-      const response = await fetch('API_ENDPOINTS.PAYMENT_METHODS');
+      const response = await fetch(API_ENDPOINTS.PAYMENT_METHODS);
       console.log('Payment methods response status:', response.status);
       
       if (response.ok) {
@@ -188,7 +189,7 @@ const Payment = () => {
         formData.append('paymentScreenshot', paymentData.paymentScreenshot);
       } else {
         // Use the legacy payment system for full payments
-        paymentUrl = 'API_ENDPOINTS.PAYMENTS';
+        paymentUrl = API_ENDPOINTS.PAYMENTS;
         formData.append('orderId', orderId);
         formData.append('senderName', paymentData.senderName);
         formData.append('paymentMethod', paymentData.paymentMethod);
